@@ -212,6 +212,7 @@
     @include font(16px, 300, 24px);
 
     color: $light-blue;
+    text-decoration: unset;
 
     &:hover {
       color: white;

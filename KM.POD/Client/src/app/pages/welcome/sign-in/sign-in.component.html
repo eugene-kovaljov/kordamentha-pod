@@ -1,0 +1,29 @@
+<aside class="authorization-aside">
+  <div class="authorization-aside__form">
+    <h2 class="authorization-aside__title h2"><strong>Sign in</strong></h2>
+    <form [formGroup]="signInForm" class="authorization-form">
+      <div class="authorization-form__group">
+        <label class="authorization-form__label" for="email">Email</label>
+        <input class="authorization-form__input" id="email" formControlName="email" placeholder="Email" type="email"/>
+        <div *ngIf="isControlInvalid('email')">Invalid email</div>
+      </div>
+      <div class="authorization-form__group">
+        <label class="authorization-form__label" for="password">Password</label>
+        <input class="authorization-form__input" placeholder="Enter your password" type="password" formControlName="password" id="password"/>
+      </div>
+      <div class="authorization-form__group authorization-form__group_checkbox">
+        <input type="checkbox" formControlName="rememberMe" id="rememberMe">
+        <label class="authorization-form__label" for="rememberMe">Remember me</label>
+      </div>
+      <div class="authorization-form__button-group">
+        <button class="button button_medium button_light-blue authorization-form__button" type="reset" (click)="cancel()">Cancel</button>
+        <button class="button button_medium button_white-filled authorization-form__button" (click)="login()" [disabled]="signInForm.invalid">Sign in</button>
+      </div>
+
+      <div class="authorization-form__bottom-links">
+        <a routerLink="/provideEmail" class="authorization-form__links">Forgot my password</a>
+        <a routerLink="/welcome/register" class="authorization-form__links">Create new account</a>
+      </div>
+    </form>
+  </div>
+</aside>
