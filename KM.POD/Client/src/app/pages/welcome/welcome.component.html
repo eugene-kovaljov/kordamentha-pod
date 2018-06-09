@@ -1,0 +1,81 @@
+<main class="main">
+  <a href="/" class="logo logo_home">
+    <svg-icon class="svg-icon svg-icon-logo" src="assets/img/icons/logo.svg"></svg-icon>
+  </a>
+
+  <section class="authorization">
+    <div class="authorization__content-wrapper">
+      <div class="authorization__content">
+        <h1 class="authorization__title h1">Lodge a Proof of Debt Form</h1>
+        <div class="authorization__text">
+          <p>Content here, content here. Lorem Ipsum is simply dummy text of printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+          </p>
+          <p>When an unknown printer took a galley specimen book.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <router-outlet></router-outlet>
+
+  <section class="short-guide aside-pseudo-element">
+    <div class="short-guide__container">
+      <div class="container">
+        <h2 class="short-guide__title h2"><strong>How it works</strong> step by step</h2>
+        <ul class="short-guide__list row row_flex">
+          <li class="short-guide__item">
+            <h4 class="short-guide__item-title">Create account or Sign in</h4>
+            <div class="short-guide__item-text">
+              <p>Dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. he point of using Lorem Ipsum.</p>
+            </div>
+          </li>
+          <li class="short-guide__item">
+            <h4 class="short-guide__item-title">Fill and send POD claim</h4>
+            <div class="short-guide__item-text">
+              <p>he point of using Lorem Ipsum is that. Dummy text ever since the 1500s, when an unknown printer took a galley of type, scrambled.</p>
+            </div>
+          </li>
+          <li class="short-guide__item">
+            <h4 class="short-guide__item-title">Waiting for our feedback</h4>
+            <div class="short-guide__item-text">
+              <p>Dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled but also the leap into electronic typesetting only five. </p>
+            </div>
+          </li>
+          <li class="short-guide__item">
+            <h4 class="short-guide__item-title">Get your fair compensation</h4>
+            <div class="short-guide__item-text">
+              <p>Dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled took a galley of type.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="footer aside-pseudo-element">
+  <div class="footer__wrapper">
+
+    <div class="footer__top">
+      <div class="footer__container container">
+        <h3 class="footer__title h3"><strong>Contact us</strong> to explore more</h3>
+        <div class="footer__row row row_flex">
+          <div class="footer__column footer__column_flex-column">
+            <h4 class="footer__subtitle h4">Choose suitable city</h4>
+            <label class="footer__city" for="choose-city">City</label>
+            <ng-select id="choose-city" [items]="cities"
+                       bindLabel="name"
+                       bindValue="id"></ng-select>
+          </div>
+          <div class="footer__column footer__column_flex-column footer__column_contacts">
+            <h4 class="footer__subtitle h4">Contacts in Gold Coast</h4>
+            <a href="tel:+61733380230" class="footer__tel">+61 7 3338 0230
+            </a>
+            <a href="mailto:info@kordamentha.com" class="footer__mail">info@kordamentha.com</a>
+            <div class="footer__worktime">We online 24/7</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <km-footer></km-footer>
+</div>
