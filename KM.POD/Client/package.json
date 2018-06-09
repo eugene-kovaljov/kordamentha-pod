@@ -61,7 +61,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "run-s format:fix lint",
-      "pre-push": "run-p test-single"
+      "pre-push": "run-p test:single"
     }
   }
 }
