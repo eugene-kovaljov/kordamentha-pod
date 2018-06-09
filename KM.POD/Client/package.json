@@ -6,7 +6,7 @@
     "start": "ng serve --aot",
     "build": "ng build --prod",
     "test": "ng test",
-    "test:single": "ng test -sr=true -sm=false",
+    "test-single": "ng test -sr=true -sm=false",
     "lint": "ng lint kordamentha-pod --fix",
     "e2e": "ng e2e",
     "bundle-report": "webpack-bundle-analyzer dist/stats.json",
