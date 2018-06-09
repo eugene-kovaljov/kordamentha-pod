@@ -1,0 +1,91 @@
+@import '../../../../../scss/helpers';
+@import '../../../../../scss/shared/buttons';
+
+.privacy-politics {
+  overflow: hidden;
+
+  height: 100%;
+
+  &__wrapper {
+    display: flex;
+    overflow: hidden;
+
+    max-height: calc(100% - 169px); // 96px - heigth of buttons group
+    padding: 24px 20px 24px;
+
+    flex-wrap: nowrap;
+
+    @media (min-width: $sm) {
+      max-height: calc(100% - 96px); // 96px - heigth of buttons group
+    }
+
+    @media (min-width: $md) and (max-width: $xl - 1) {
+      padding: 40px 40px 20px;
+    }
+    @media (min-width: $xl) {
+      padding: 60px 105px 24px;
+    }
+  }
+
+  &__content {
+    padding-right: 20px;
+  }
+
+  &__buttons {
+    display: flex;
+
+    margin-top: auto;
+    margin-bottom: unset;
+    padding: 24px 20px;
+
+    border-top: 1px solid #b3b2b1;
+
+    align-items: center;
+
+    @media (min-width: $md) {
+      height: 96px;
+    }
+
+    @media (min-width: $md) and (max-width: $xl - 1) {
+      padding: 24px 40px;
+    }
+    @media (min-width: $xl) {
+      padding: 24px 105px;
+    }
+  }
+
+  &__button {
+    @extend .button;
+    @extend .button_medium;
+
+    width: 100%;
+    margin: 0;
+
+    @media (min-width: $sm) {
+      width: calc(50% - #{$gutter});
+    }
+
+    @media (max-width: $sm - 1) {
+      &:first-child {
+        margin-top: 24px;
+
+        order: 2;
+      }
+      &:last-child {
+        order: 1;
+      }
+    }
+  }
+
+  &__button_cancel {
+    @extend .button_deep-blue;
+  }
+
+  &__button_submit {
+    @extend .button_black-gray-filled;
+
+    @media (min-width: $sm) {
+      margin-left: auto;
+    }
+  }
+}

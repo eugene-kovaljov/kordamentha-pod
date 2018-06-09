@@ -17,16 +17,18 @@
     height: 100vh;
   }
   @media (min-width: $lg) and (max-width: $xl - 1) {
-    padding: 187px 25px 25px 25px;
+    padding: 0 25px 25px 25px;
   }
   @media (min-width: $xl) {
-    padding: 279px 70px 20px;
+    padding: 0 70px 20px;
   }
 
   &__form {
     max-width: 345px;
     margin-right: auto;
     margin-left: auto;
+    top: 25%;
+    position: relative;
   }
 
   &__title {
@@ -221,6 +223,7 @@
 }
 
 .account-creation-progress {
+  display: inline !important;
   margin-top: 40px;
 
   color: #50748a;

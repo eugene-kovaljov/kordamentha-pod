@@ -1,0 +1,39 @@
+<aside class="authorization-aside">
+  <div class="authorization-aside__form">
+    <h2 class="authorization-aside__title h2"><strong>Create new account</strong></h2>
+
+    <form [formGroup]="registrationForm" class="authorization-form">
+      <div class="authorization-form__group">
+        <label class="authorization-form__label" for="email">Email</label>
+        <input class="authorization-form__input"
+               id="email"
+               type="email"
+               placeholder="Email"
+               formControlName="email">
+        <div class="authorization-form__validation-message"
+             *ngIf="isControlInvalid('email')">
+          Email is invalid
+        </div>
+      </div>
+
+      <div class="authorization-form__group">
+        <label class="authorization-form__label" for="password">Phone</label>
+        <input id="password" class="authorization-form__input" placeholder="+61 7 ____ ____" type="tel" [textMask]="{mask: phoneMask}" formControlName="phone" id="phone"/>
+        <div class="authorization-form__validation-message"
+             *ngIf="isControlInvalid('phone')">
+          Phone is invalid
+        </div>
+      </div>
+      <div class="authorization-form__group authorization-form__group_checkbox">
+        <input type="checkbox" formControlName="isChosen" id="IAgree">
+        <label class="authorization-form__label" for="IAgree">I agree with</label>
+        <a class="authorization-form__policy-link" (click)="showTermsOfUse()">Personal data politics</a>
+      </div>
+      <div class="authorization-form__button-group">
+        <button class="button button_medium button_light-blue authorization-form__button" (click)="cancel()">Cancel</button>
+        <button class="button button_medium button_white-filled authorization-form__button" (click)="showVerificationScreen()" [disabled]="registrationForm.invalid">Continue</button>
+      </div>
+    </form>
+    <svg-icon class="account-creation-progress" src="assets/img/icons/steps.svg"></svg-icon>
+  </div>
+</aside>

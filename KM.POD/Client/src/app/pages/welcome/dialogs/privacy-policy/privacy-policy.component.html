@@ -1,0 +1,34 @@
+<div class="privacy-politics">
+  <div class="privacy-politics__wrapper">
+    <div class="privacy-politics__content user-content custom-scroll">
+      <h1>{{data.title}}</h1>
+      <h3>1. Firts part title</h3>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. All the Lorem Ipsum generators on the
+        Internet tend to repeat predefined chunks as necessary.
+      </p>
+      <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites.
+      </p>
+      <h4>1.1 An Unordered List:</h4>
+      <ul>
+        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+        <li>All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary.</li>
+        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+      </ul>
+      <h4>1.2 An Ordered List:</h4>
+      <ol>
+        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+        <li>All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary.</li>
+        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+      </ol>
+      <p>{{data.content}}</p>
+    </div>
+  </div>
+  <div class="privacy-politics__buttons">
+    <button class="privacy-politics__button privacy-politics__button_cancel"
+            mat-dialog-close
+            (click)="close()">Close</button>
+    <button class="privacy-politics__button privacy-politics__button_submit"
+            mat-dialog-close
+            (click)="approve()">I agree</button>
+  </div>
+</div>

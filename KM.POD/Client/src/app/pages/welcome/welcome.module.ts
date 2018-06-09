@@ -8,10 +8,32 @@ import { WelcomeSidebarComponent } from './welcome-sidebar/welcome-sidebar.compo
 import { SignInComponent } from './sign-in/sign-in.component';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TextMaskModule } from 'angular2-text-mask';
+import { MatDialogModule } from '@angular/material';
+import { PrivacyPolicyComponent } from './dialogs/privacy-policy/privacy-policy.component';
+import { CodeVerificationComponent } from './code-verification/code-verification.component';
+import { PasswordSetupComponent } from './password-setup/password-setup.component';
 
 @NgModule({
-  imports: [CommonModule, RoutingModule, FormsModule, ReactiveFormsModule, SharedModule, NgSelectModule],
-  declarations: [WelcomeComponent, WelcomeSidebarComponent, SignInComponent, RegisterComponent],
-  exports: []
+  imports: [
+    CommonModule,
+    RoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    SharedModule,
+    NgSelectModule,
+    TextMaskModule,
+    MatDialogModule
+  ],
+  declarations: [
+    WelcomeComponent,
+    WelcomeSidebarComponent,
+    SignInComponent,
+    RegisterComponent,
+    PrivacyPolicyComponent,
+    CodeVerificationComponent,
+    PasswordSetupComponent
+  ],
+  entryComponents: [PrivacyPolicyComponent]
 })
 export class WelcomeModule {}

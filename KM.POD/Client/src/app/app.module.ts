@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { FooterModule } from './shared/components/footer/footer.module';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
@@ -9,8 +8,8 @@ import { environment } from '../environments/environment';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { RoutingModule } from './core/routing/app.routing.module';
 import { WelcomeModule } from './pages/welcome/welcome.module';
-import { AngularSvgIconModule } from 'angular-svg-icon';
 import { SharedModule } from './shared/shared.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,6 +21,7 @@ import { SharedModule } from './shared/shared.module';
     HttpClientModule,
     SharedModule,
     WelcomeModule,
+    BrowserAnimationsModule,
     environment.production
       ? []
       : StoreDevtoolsModule.instrument({
