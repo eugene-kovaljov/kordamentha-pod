@@ -1,4 +1,4 @@
-import { FormControl, ValidationErrors } from '@angular/forms';
+import { AbstractControl, FormControl, ValidationErrors } from '@angular/forms';
 
 export const phoneMask = ['+', '6', '1', '7', /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/];
 
@@ -15,6 +15,16 @@ export function passwordValidator({ value }: FormControl): ValidationErrors {
     return { invalidPassword: 'error message' };
   }
   return null;
+}
+
+export function passwordMatchValidator(abstractControl: AbstractControl): ValidationErrors {
+  const password = abstractControl.get('password').value;
+  const confirmPassword = abstractControl.get('confirmPassword').value;
+  if (password !== confirmPassword) {
+    abstractControl.get('confirmPassword').setErrors({ matchPassword: true });
+  } else {
+    return null;
+  }
 }
 
 export function emailValidator({ value }: FormControl): ValidationErrors {

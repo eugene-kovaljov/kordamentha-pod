@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { routes } from '../../../shared/constants/urls';
-import { emailValidator } from '../../../shared/validators';
+import { emailValidator } from '../../../shared/validators/index';
 
 @Component({
   selector: 'km-sign-in',

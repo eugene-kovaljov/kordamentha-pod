@@ -1,11 +1,14 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { emailValidator, phoneMask } from '../../../shared/validators';
+import { emailValidator, phoneMask } from '../../../../../shared/validators/index';
 import { MatDialog } from '@angular/material';
-import { PrivacyPolicyComponent } from '../dialogs/privacy-policy/privacy-policy.component';
+import { PrivacyPolicyComponent } from '../privacy-policy/privacy-policy.component';
 import { Router } from '@angular/router';
-import { routes } from '../../../shared/constants/urls';
-import { AlertComponent } from '../../../shared/components/dialogs/alert/alert.component';
+import { routes } from '../../../../../shared/constants/urls';
+import { AlertComponent } from '../../../../../shared/components/dialogs/alert/alert.component';
+import { RegistrationStep } from '../../models';
+import { Store } from '@ngrx/store';
+import { MoveToTheStep, RegistrationStepTypes, SaveTelephone } from '../../actions';
 
 @Component({
   selector: 'km-register',
@@ -13,11 +16,12 @@ import { AlertComponent } from '../../../shared/components/dialogs/alert/alert.c
   styleUrls: ['./register.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit, RegistrationStep {
   public registrationForm: FormGroup;
   public phoneMask = phoneMask;
 
   constructor(
+    private store: Store<any>,
     private formBuilder: FormBuilder,
     private dialogService: MatDialog,
     private router: Router,
@@ -26,6 +30,14 @@ export class RegisterComponent implements OnInit {
 
   public ngOnInit(): void {
     this.initForm();
+  }
+
+  public nextStep(): void {
+    this.store.dispatch(new MoveToTheStep(RegistrationStepTypes.CodeVerification));
+  }
+
+  public previousStep(): void {
+    this.cancel();
   }
 
   public isControlInvalid(controlName: string): boolean {
@@ -66,13 +78,19 @@ export class RegisterComponent implements OnInit {
   }
 
   public showVerificationScreen(): void {
+    this.store.dispatch(new SaveTelephone(this.registrationForm.get('phone').value));
+
     const dialogRef = this.dialogService.open(AlertComponent, {
       autoFocus: false,
       data: {
         title: 'Check your phone!',
-        message: 'Verification code was recent.'
+        message: 'CodeVerification code was recent.'
       },
       panelClass: 'dialog-container'
+    });
+
+    dialogRef.afterClosed().subscribe(() => {
+      this.nextStep();
     });
   }
 }
