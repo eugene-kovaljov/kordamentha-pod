@@ -9,9 +9,11 @@ import {
 } from '@angular/core';
 import { AdDirective } from '../../../../core/directives/ad.directive';
 import { select, Store } from '@ngrx/store';
-import { takeUntil, finalize } from 'rxjs/operators';
+import { takeUntil, finalize } from 'rxjs/internal/operators';
 import { UnsubscribableComponent } from '../../../../shared/components/base-unsubscribe/unsubscribable.component';
 import { getCurrentStep } from '../selectors';
+import { MoveToTheStep, RegistrationStepTypes } from '../actions';
+import { filter } from 'rxjs/internal/operators';
 
 @Component({
   selector: 'km-registration-container',
@@ -30,9 +32,11 @@ export class RegistrationContainerComponent extends UnsubscribableComponent impl
   }
 
   public ngOnInit(): void {
+    this.store.dispatch(new MoveToTheStep(RegistrationStepTypes.Register));
     this.store
       .pipe(
         select(getCurrentStep),
+        filter(data => data !== null),
         takeUntil(this.destroy$)
       )
       .subscribe((data: Type<Component>) => {

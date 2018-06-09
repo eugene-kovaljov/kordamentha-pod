@@ -11,7 +11,7 @@ export interface AccountCreationState {
 }
 
 export const initialState: AccountCreationState = {
-  currentStep: RegisterComponent,
+  currentStep: null,
   phone: ''
 };
 
