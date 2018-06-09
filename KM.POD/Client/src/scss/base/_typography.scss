@@ -1,0 +1,57 @@
+// /src/scss/base/_typography.scss
+
+h1,
+.h1 {
+  @include font(34px, 300, 45px);
+
+  @media (min-width: $md) {
+    @include font(45px, 300, 56px);
+  }
+}
+
+h2,
+.h2 {
+  @include font(24px, 300, 32px);
+
+  @media (min-width: $xl) {
+    @include font(34px, 300, 45px);
+  }
+}
+
+h3,
+.h3 {
+  @include font(24px, 300, 32px);
+}
+
+h4,
+.h4 {
+  @include font(18px, 500, 27px);
+}
+
+p {
+  @include font(16px, 400, 24px);
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+a {
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+i,
+em {
+  font-style: italic;
+}
+
+b,
+strong {
+  font-weight: 500;
+}

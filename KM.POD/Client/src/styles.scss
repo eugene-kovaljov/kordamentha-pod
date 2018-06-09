@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+// /src/styles.scss
+
+// Third-party libraries
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import '~normalize.css';
+
+// General Project Styles
+@import 'scss/helpers/vars'; // Variables
+@import 'scss/helpers/mixins'; // Functions and mixins
+@import 'scss/base/fonts';
+@import 'scss/base/grid'; // Grid system
+@import 'scss/base/reset'; // Reset and Override Global Styles
+@import 'scss/base/typography';
+
+@import 'scss/svg-sprite'; // Generated styles for svg-sprite
+
+// Shared componets
+@import 'scss/shared/breadcrumb';
+@import 'scss/shared/buttons';
+@import 'scss/shared/forms';
+@import 'scss/shared/privacy-dialog-window';
+@import 'scss/shared/select';
+
+@import 'scss/shared/header';
+@import 'scss/shared/footer';
+
+@import 'scss/shared/account';
+
+@import 'scss/common';

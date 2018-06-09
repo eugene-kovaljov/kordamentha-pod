@@ -1,0 +1,245 @@
+.authorization-aside {
+  width: 100%;
+  margin-left: auto;
+  padding: 47px 20px 56px;
+
+  color: white;
+  background: rgba($black-green, 0.8);
+
+  align-self: stretch;
+
+  @media (min-width: $lg) {
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    width: $auth-aside-width;
+    height: 100vh;
+  }
+  @media (min-width: $lg) and (max-width: $xl - 1) {
+    padding: 187px 25px 25px 25px;
+  }
+  @media (min-width: $xl) {
+    padding: 279px 70px 20px;
+  }
+
+  &__form {
+    max-width: 345px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  &__title {
+    margin-bottom: 40px;
+  }
+}
+
+.authorization-form {
+  &__group {
+    @include font(16px, 400, 24px);
+
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 22px;
+
+    color: $pale-gray;
+
+    align-items: stretch;
+  }
+
+  &__group_checkbox {
+    flex-direction: row;
+
+    margin-top: 37px;
+
+    align-items: center;
+
+    input[type='checkbox'] {
+      display: none;
+    }
+
+    input[type='checkbox'] + label {
+      display: flex;
+
+      cursor: pointer;
+      user-select: none;
+      white-space: nowrap;
+
+      align-items: center;
+    }
+
+    input[type='checkbox'] + label::before {
+      display: inline-block;
+
+      width: 24px;
+      height: 24px;
+      margin-right: 9px;
+
+      content: '';
+      text-align: center;
+
+      border: 1px solid $light-blue;
+      background: transparent;
+    }
+
+    input[type='checkbox']:checked + label::before {
+      border-color: $deep-blue;
+      background: $deep-blue url('/../assets/img/checkbox-checked.svg') center no-repeat;
+      background-size: 12px 8px;
+    }
+  }
+
+  &__policy-link {
+    margin-left: 5px;
+
+    text-decoration: none;
+
+    color: $light-blue;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__label {
+    box-shadow: inset 0 0 0 1px transparent;
+  }
+
+  &__input {
+    @include transition(border-color);
+
+    margin-top: 9px;
+    padding: 14px 12px;
+
+    color: white;
+    border: 1px solid $deep-blue;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: right 6px center;
+
+    &:hover:not(:focus) {
+      cursor: pointer;
+
+      border-bottom-color: white;
+    }
+
+    &.ng-untouched {
+      border-color: $deep-blue;
+    }
+
+    &.ng-dirty.ng-valid {
+      border-bottom-color: $success;
+      background-image: url('/../assets/img/validation-satus-valid.svg');
+      background-size: 12px 15px;
+    }
+
+    &.ng-invalid:not(.ng-untouched) {
+      border-bottom-color: $warning;
+      background-image: url('/../assets/img/validation-satus-invalid.svg');
+      background-size: 14px 14px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    &::placeholder {
+      color: #b3b2b1;
+    }
+  }
+
+  &__validation-message {
+    @include font(14px, 300, 21px);
+
+    margin-top: 12px;
+  }
+
+  &__button-group {
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 36px;
+
+    align-items: stretch;
+
+    @media (min-width: $sm) {
+      flex-direction: row;
+
+      align-items: center;
+    }
+  }
+
+  &__button {
+    @media (max-width: $sm - 1) {
+      &:first-child {
+        margin-top: 24px;
+
+        order: 2;
+      }
+      &:last-child {
+        order: 1;
+      }
+    }
+
+    @media (min-width: $sm) {
+      min-width: 154px;
+      &:first-child {
+        margin-right: auto;
+      }
+      &:last-child {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  &__button-home {
+    @media (min-width: $sm) {
+      width: 100%;
+    }
+  }
+
+  &__bottom-links {
+    display: flex;
+
+    margin-top: 23px;
+
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__links {
+    @include font(16px, 300, 24px);
+
+    color: $light-blue;
+
+    &:hover {
+      color: white;
+    }
+  }
+}
+
+.account-creation-progress {
+  margin-top: 40px;
+
+  color: #50748a;
+
+  .step_1 {
+    color: white;
+  }
+
+  &.step-2 .step_2 {
+    color: white;
+  }
+
+  &.step-3 .step_2,
+  &.step-3 .step_3 {
+    color: white;
+  }
+
+  &.step-4 .step_2,
+  &.step-4 .step_3,
+  &.step-4 .step_4 {
+    color: white;
+  }
+}

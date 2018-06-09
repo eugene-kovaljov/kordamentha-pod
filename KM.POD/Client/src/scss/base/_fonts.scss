@@ -1,0 +1,17 @@
+// /src/scss/base/_fonts.scss
+
+$font-url: '/../assets/fonts/WeissenhofGrotesk';
+@each $file-name, $font-weight in ('weissenhofgrotesk-light-webfont', 300), ('weissenhofgrotesk-regular-webfont', 400),
+  ('weissenhofgrotesk-medium-webfont', 500)
+{
+  @font-face {
+    font-family: 'Weissenhof Grotesk';
+    font-weight: $font-weight;
+    font-style: normal;
+
+    src: url('#{$font-url}/#{$file-name}.eot');
+    src: url('#{$font-url}/#{$file-name}.eot?#iefix') format('embedded-opentype'),
+      url('#{$font-url}/#{$file-name}.woff2') format('woff2'), url('#{$font-url}/#{$file-name}.woff') format('woff'),
+      url('#{$font-url}/#{$file-name}.ttf') format('truetype');
+  }
+}

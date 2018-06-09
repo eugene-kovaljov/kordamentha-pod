@@ -1,0 +1,81 @@
+.main {
+  box-shadow: inset 0 0 0 1px transparent;
+}
+
+.banner {
+  padding-top: 120px;
+  padding-bottom: 56px;
+
+  color: white;
+  background-image: url('/../assets/img/bg-main.png');
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: cover;
+
+  &_bg-fixed {
+    background-attachment: fixed;
+  }
+
+  &__title {
+    margin-bottom: 40px;
+  }
+
+  p {
+    @include font(20px, 300, 30px);
+
+    margin-top: 32px;
+
+    @media (min-width: $xl) {
+      @include font(24px, 300, 32px);
+    }
+  }
+}
+
+.pod-claims {
+  padding-top: 56px;
+  padding-bottom: 56px;
+}
+
+.user-content {
+  @include font(16px, 400, 24px);
+
+  color: $black-green;
+
+  h1 {
+    margin-bottom: 25px;
+  }
+  h2,
+  h3,
+  h4 {
+    font-weight: 500;
+
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+
+  ul,
+  ol {
+    margin-top: 24px;
+    margin-bottom: 24px;
+    padding-left: 28px;
+  }
+
+  p:not(:last-of-type) {
+    margin-bottom: 20px;
+  }
+}
+
+.custom-scroll {
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+
+    border-radius: 4px;
+    background-color: #f6f5f4;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: #b3b2b1;
+  }
+}

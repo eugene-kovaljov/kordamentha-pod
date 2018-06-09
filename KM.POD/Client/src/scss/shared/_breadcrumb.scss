@@ -1,0 +1,51 @@
+// /scss/components/_breadcrumb.scss
+
+.breadcrumb {
+  display: flex;
+
+  list-style: none;
+
+  color: $light-blue;
+  background-color: transparent;
+
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+
+  &_banner {
+    margin-bottom: 12px;
+  }
+
+  &__list {
+    @include font(14px, 400, 20px);
+
+    display: flex;
+
+    margin-right: 8px;
+
+    align-items: center;
+
+    &:after {
+      @include transition(background-color);
+
+      display: inline-block;
+
+      width: 1px;
+      height: 14px;
+      margin-left: 8px;
+
+      content: '';
+
+      background-color: $light-blue;
+    }
+  }
+
+  &__link {
+    @include transition(color);
+
+    color: $light-blue;
+  }
+
+  &__list:hover &__link {
+    color: $black-green;
+  }
+}

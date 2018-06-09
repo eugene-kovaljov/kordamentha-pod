@@ -1,0 +1,22 @@
+// /src/scss/helpers/_mixins.scss
+
+// $font came from _vars.scss
+@mixin font($font-size, $font-weight: 400, $line-height: $font-size, $font-style: normal, $font-family: $font) {
+  @if unit($font-size) == unit($line-height) {
+    font: $font-weight $font-style #{$font-size} / #{$line-height/$font-size} $font-family;
+  } @else {
+    font: $font-weight $font-style #{$font-size} / #{$line-height} $font-family;
+  }
+}
+
+// @include transition;
+@mixin transition($property: all, $time: 0.25s) {
+  transition: $property $time ease-in;
+}
+
+// part of grid system
+@mixin span($qty: 4, $columns: 12, $gutter: $gutter) {
+  width: calc(#{percentage($qty/$columns)} - #{$gutter * 2});
+  margin-left: $gutter;
+  margin-right: $gutter;
+}

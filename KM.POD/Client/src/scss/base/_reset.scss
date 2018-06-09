@@ -1,0 +1,85 @@
+// /src/scss/_reset.scss
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%; // 62.5% of the default of 16px, which equates to 10px
+
+  box-sizing: border-box;
+  height: 100%;
+
+  background-color: transparent;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font: 400 normal 10px / 1.5 $font-family;
+
+  min-height: 100%;
+
+  color: black;
+  background-color: white;
+}
+
+.clearfix:before,
+.clearfix:after {
+  display: table;
+
+  content: ' ';
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.clearfix {
+  *zoom: 1;
+}
+
+*:focus {
+  outline: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  word-wrap: break-word;
+  word-break: break-all;
+  hyphens: auto;
+
+  overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+}

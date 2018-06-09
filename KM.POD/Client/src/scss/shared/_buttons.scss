@@ -1,0 +1,90 @@
+// /src/scss/shared/_buttons.scss
+
+// Shared styles for buttons
+.button {
+  @include transition();
+
+  display: inline-block;
+
+  box-sizing: border-box;
+
+  text-align: center;
+  text-decoration: none;
+
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 0;
+  outline: none !important;
+  white-space: nowrap;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.button-home {
+  width: 100%;
+}
+
+// button medium size
+.button_medium {
+  @include font(16px, 400, 24px);
+
+  padding: 11px 22px;
+}
+
+// button color mod
+.button_light-blue {
+  color: $light-blue;
+  border-color: $light-blue;
+  background-color: transparent;
+
+  &:hover {
+    color: white;
+    border-color: white;
+    background-color: transparent;
+  }
+}
+
+.button_deep-blue {
+  color: $deep-blue;
+  border-color: $deep-blue;
+  background-color: transparent;
+
+  &:hover {
+    box-shadow: 0 0 5px $deep-blue;
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+}
+
+// Filled button
+.button_white-filled {
+  color: $black-green;
+  border-color: white;
+  background-color: white;
+
+  &:hover {
+    box-shadow: 0 0 5px $light-blue;
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+}
+
+.button_black-gray-filled {
+  color: white;
+  border-color: $black-gray;
+  background-color: $black-gray;
+
+  &:hover {
+    box-shadow: 0 0 5px $black-gray;
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+}

@@ -1,0 +1,52 @@
+.privacy-politics-dialog-container {
+  max-width: initial !important;
+}
+.privacy-politics-dialog-container .mat-dialog-container {
+  width: 100%;
+  max-width: calc(100% - 2 * 20px);
+  height: 80vh;
+  max-height: 865px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0;
+
+  color: $black-green;
+
+  @media (min-width: $md) and (max-width: $xl - 1) {
+    width: 80vw;
+  }
+
+  @media (min-width: $xl) {
+    width: 62.5vw;
+    max-width: 1200px;
+  }
+}
+
+.dialog-container .mat-dialog-container {
+  padding: 30px 20px;
+
+  @media (min-width: $md) {
+    padding: 40px 24px;
+  }
+}
+
+.dialog {
+  display: flex;
+  flex-direction: column;
+
+  align-items: stretch;
+
+  @media (min-width: $sm) {
+    min-width: 320px;
+  }
+
+  &__title {
+    font-weight: 500;
+
+    margin-bottom: 24px;
+  }
+
+  &__button {
+    margin-top: 24px;
+  }
+}
