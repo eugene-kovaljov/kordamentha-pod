@@ -3,32 +3,23 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Client": {
+    "kordamentha-pod": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
       "prefix": "km",
-      "schematics": {
-        "@schematics/angular:component": {
-          "styleext": "scss"
-        }
-      },
+      "schematics": {},
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Client",
+            "outputPath": "dist/kordamentha-pod",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -54,18 +45,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Client:build"
+            "browserTarget": "kordamentha-pod:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "Client:build:production"
+              "browserTarget": "kordamentha-pod:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Client:build"
+            "browserTarget": "kordamentha-pod:build"
           }
         },
         "test": {
@@ -75,31 +66,21 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
-            "styles": [
-              "src/styles.scss"
-            ],
+            "styles": ["src/styles.scss"],
             "scripts": [],
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ]
+            "assets": ["src/favicon.ico", "src/assets"]
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "src/tsconfig.app.json",
-              "src/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "tsConfig": ["src/tsconfig.app.json", "src/tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
     },
-    "Client-e2e": {
+    "kordamentha-pod-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -107,11 +88,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "Client:serve"
+            "devServerTarget": "kordamentha-pod:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "Client:serve:production"
+              "devServerTarget": "kordamentha-pod:serve:production"
             }
           }
         },
@@ -119,13 +100,11 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "e2e/tsconfig.e2e.json",
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
     }
   },
-  "defaultProject": "Client"
+  "defaultProject": "kordamentha-pod"
 }
