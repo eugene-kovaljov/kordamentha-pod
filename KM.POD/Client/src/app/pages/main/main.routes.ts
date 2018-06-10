@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { routes } from '../../shared/constants/urls';
 import { MainComponent } from './main.component';
 import { AccountComponent } from './account/account.component';
+import { AuthGuard } from '../../core/guards/auth.guard';
 
 export const mainPageRoutes: Routes = [
   {
@@ -10,6 +11,7 @@ export const mainPageRoutes: Routes = [
     data: {
       breadcrumbs: 'Home'
     },
+    canActivate: [AuthGuard],
     children: [
       {
         path: routes.ACCOUNT.routerPath,
