@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
 import { WelcomeComponent } from './welcome.component';
 import { WelcomeSidebarComponent } from './welcome-sidebar/welcome-sidebar.component';
-import { SignInComponent } from './sign-in/sign-in.component';
+import { SignInComponent } from './sign-in/components/sign-in.component';
 import { routes } from '../../shared/constants/urls';
 import { RegistrationContainerComponent } from './registration/components/registration-container.component';
-import { PasswordRecoveryComponent } from './password-recovery/password-recovery.component';
+import { PasswordRecoveryComponent } from './password-recovery/components/password-recovery.component';
 
 export const welcomePageRoutes: Routes = [
   {

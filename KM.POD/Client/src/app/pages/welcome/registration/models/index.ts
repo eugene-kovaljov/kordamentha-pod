@@ -19,7 +19,7 @@ export interface PhoneVerificationToken {
 }
 
 export interface PasswordSetup {
-  passwordToken: string;
+  password: string;
   confirmPassword: string;
 }
 

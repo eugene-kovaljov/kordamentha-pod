@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 import { environment } from '../../../../../environments/environment';
 import {
   AccountData,
@@ -9,7 +9,7 @@ import {
   PhoneVerificationCode,
   PhoneVerificationToken
 } from '../models';
-import { of } from 'rxjs';
+import { of } from 'rxjs/observable/of';
 
 @Injectable()
 export class RegistrationService {

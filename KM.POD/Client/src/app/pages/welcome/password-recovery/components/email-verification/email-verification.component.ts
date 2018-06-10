@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { emailValidator } from '../../../../shared/validators';
+import { emailValidator } from '../../../../../shared/validators/index';
 import { Router } from '@angular/router';
-import { routes } from '../../../../shared/constants/urls';
+import { routes } from '../../../../../shared/constants/urls';
 
 @Component({
   selector: 'km-email-verification',

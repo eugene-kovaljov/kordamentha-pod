@@ -4,11 +4,11 @@ import { WelcomeComponent } from './welcome.component';
 import { RoutingModule } from '../../core/routing/app.routing.module';
 import { SharedModule } from '../../shared/shared.module';
 import { WelcomeSidebarComponent } from './welcome-sidebar/welcome-sidebar.component';
-import { SignInComponent } from './sign-in/sign-in.component';
 import { MatDialogModule } from '@angular/material';
 import { RegistrationModule } from './registration/registration.module';
 import { CoreModule } from '../../core/core.module';
 import { PasswordRecoveryModule } from './password-recovery/password-recovery.module';
+import { SignInModule } from './sign-in/sign-in.module';
 
 @NgModule({
   imports: [
@@ -18,8 +18,9 @@ import { PasswordRecoveryModule } from './password-recovery/password-recovery.mo
     RegistrationModule,
     PasswordRecoveryModule,
     SharedModule,
-    MatDialogModule
+    MatDialogModule,
+    SignInModule
   ],
-  declarations: [WelcomeComponent, WelcomeSidebarComponent, SignInComponent]
+  declarations: [WelcomeComponent, WelcomeSidebarComponent]
 })
 export class WelcomeModule {}

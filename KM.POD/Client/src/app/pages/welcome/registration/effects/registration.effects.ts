@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { RegistrationService } from '../services/registration.service';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 import { Action, select, Store } from '@ngrx/store';
 import {
   AccountCreated,
