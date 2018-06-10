@@ -5,11 +5,12 @@
     "ng": "ng",
     "start": "ng serve --aot --proxy-config proxy.config.json",
     "build": "ng build --prod",
+    "build-stat": "ng build --stats-json",
     "test": "ng test",
     "test-single": "ng test -sr=true -sm=false",
     "lint": "ng lint kordamentha-pod --fix",
     "e2e": "ng e2e",
-    "bundle-report": "webpack-bundle-analyzer dist/stats.json",
+    "bundle-report": "webpack-bundle-analyzer dist/kordamentha-pod/stats.json",
     "format:fix": "pretty-quick --staged",
     "format:check": "prettier --config ./.prettierrc --list-different \"src/{app,environments,assets}/**/*{.ts,.js,.json,.css,.scss}\""
   },

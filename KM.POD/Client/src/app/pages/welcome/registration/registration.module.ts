@@ -13,6 +13,9 @@ import { CoreModule } from '../../../core/core.module';
 import { StoreModule } from '@ngrx/store';
 import { registerReducers } from './reducers';
 import { RegistrationContainerComponent } from './components/registration-container.component';
+import { RegistrationService } from './services/registration.service';
+import { EffectsModule } from '@ngrx/effects';
+import { RegistrationEffects } from './effects/registration.effects';
 
 @NgModule({
   imports: [
@@ -23,7 +26,8 @@ import { RegistrationContainerComponent } from './components/registration-contai
     NgSelectModule,
     TextMaskModule,
     MatDialogModule,
-    StoreModule.forFeature('register', registerReducers)
+    StoreModule.forFeature('register', registerReducers),
+    EffectsModule.forFeature([RegistrationEffects])
   ],
   declarations: [
     RegisterComponent,
@@ -38,6 +42,7 @@ import { RegistrationContainerComponent } from './components/registration-contai
     CodeVerificationComponent,
     RegisterComponent,
     PrivacyPolicyComponent
-  ]
+  ],
+  providers: [RegistrationService]
 })
 export class RegistrationModule {}

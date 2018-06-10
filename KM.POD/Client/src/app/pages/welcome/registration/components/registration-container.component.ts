@@ -9,7 +9,8 @@ import {
 } from '@angular/core';
 import { AdDirective } from '../../../../core/directives/ad.directive';
 import { select, Store } from '@ngrx/store';
-import { takeUntil, finalize, filter } from 'rxjs/internal/operators';
+import { takeUntil } from 'rxjs/operators/takeUntil';
+import { filter } from 'rxjs/operators/filter';
 import { UnsubscribableComponent } from '../../../../shared/components/base-unsubscribe/unsubscribable.component';
 import { getCurrentStep } from '../selectors';
 import { MoveToTheStep, RegistrationStepTypes } from '../actions';

@@ -1,8 +1,18 @@
 import { Action } from '@ngrx/store';
+import { AccountData, PasswordSetup } from '../models';
 
 export enum AccountCreationActionType {
   MoveToTheStep = 'Move to the step',
-  SaveTelephone = 'Save telephone'
+  SaveAccountData = 'Save Account Data',
+  CreateAccount = 'Create Account',
+  AccountCreated = 'Account Created',
+  AccountCreateFailed = 'Account Create Failed',
+  ResendVerificationCode = 'Resend Verification Code',
+  VerificationCodeUpdated = 'Verification Code Updated',
+  ConfirmPhone = 'Confirm Phone',
+  PhoneConfirmed = 'Phone Confirmed',
+  SetupPassword = 'Setup Password',
+  PasswordSetupSuccess = 'Password Setup Success'
 }
 
 export enum RegistrationStepTypes {
@@ -17,10 +27,72 @@ export class MoveToTheStep implements Action {
   constructor(public payload: RegistrationStepTypes) {}
 }
 
-export class SaveTelephone implements Action {
-  readonly type = AccountCreationActionType.SaveTelephone;
+export class SaveAccountData implements Action {
+  readonly type = AccountCreationActionType.SaveAccountData;
+
+  constructor(public payload: AccountData) {}
+}
+
+export class CreateAccount implements Action {
+  readonly type = AccountCreationActionType.CreateAccount;
+
+  constructor(public payload: AccountData) {}
+}
+
+export class AccountCreated implements Action {
+  readonly type = AccountCreationActionType.AccountCreated;
+
+  constructor(public payload: AccountData) {}
+}
+
+export class AccountCreateFailed implements Action {
+  readonly type = AccountCreationActionType.AccountCreateFailed;
+
+  constructor(public payload: any) {}
+}
+
+export class ResendVerificationCode implements Action {
+  readonly type = AccountCreationActionType.ResendVerificationCode;
+
+  constructor() {}
+}
+
+export class VerificationCodeUpdated implements Action {
+  readonly type = AccountCreationActionType.VerificationCodeUpdated;
 
   constructor(public payload: string) {}
 }
 
-export type AccountCreationActions = MoveToTheStep | SaveTelephone;
+export class ConfirmPhone implements Action {
+  readonly type = AccountCreationActionType.ConfirmPhone;
+
+  constructor(public payload: string) {}
+}
+
+export class PhoneConfirmed implements Action {
+  readonly type = AccountCreationActionType.PhoneConfirmed;
+
+  constructor(public payload: string) {}
+}
+
+export class SetupPassword implements Action {
+  readonly type = AccountCreationActionType.SetupPassword;
+
+  constructor(public payload: PasswordSetup) {}
+}
+
+export class PasswordSetupSuccess implements Action {
+  readonly type = AccountCreationActionType.PasswordSetupSuccess;
+
+  constructor(public payload: string) {}
+}
+
+export type AccountCreationActions =
+  | MoveToTheStep
+  | SaveAccountData
+  | CreateAccount
+  | AccountCreated
+  | ResendVerificationCode
+  | VerificationCodeUpdated
+  | PhoneConfirmed
+  | ConfirmPhone;

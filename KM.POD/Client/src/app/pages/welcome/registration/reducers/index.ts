@@ -1,18 +1,22 @@
 import { RegisterComponent } from '../components/register/register.component';
 import { AccountCreationActions, AccountCreationActionType } from '../actions';
 import { Component, Type } from '@angular/core';
-import { RegistrationStep } from '../models';
+import { AccountData, RegistrationStep } from '../models';
 import { PasswordSetupComponent } from '../components/password-setup/password-setup.component';
 import { CodeVerificationComponent } from '../components/code-verification/code-verification.component';
 
 export interface AccountCreationState {
   currentStep: Type<Component & RegistrationStep>;
-  phone: string;
+  accountData: AccountData;
+  code: string;
+  passwordToken: string;
 }
 
 export const initialState: AccountCreationState = {
   currentStep: null,
-  phone: ''
+  accountData: {} as AccountData,
+  code: '',
+  passwordToken: ''
 };
 
 export const steps: Type<Component & RegistrationStep>[] = [
@@ -27,8 +31,19 @@ export function accountCreationReducer(state = initialState, action: AccountCrea
     case AccountCreationActionType.MoveToTheStep: {
       return { ...state, currentStep: steps[payload] };
     }
-    case AccountCreationActionType.SaveTelephone: {
-      return { ...state, phone: payload };
+    case AccountCreationActionType.SaveAccountData: {
+      return { ...state, accountData: payload };
+    }
+    case AccountCreationActionType.AccountCreated: {
+      return { ...state, accountData: payload };
+    }
+    case AccountCreationActionType.VerificationCodeUpdated: {
+      const accountData = state.accountData;
+      return { ...state, code: payload };
+    }
+    case AccountCreationActionType.PhoneConfirmed: {
+      const accountData = state.accountData;
+      return { ...state, passwordToken: payload };
     }
     default: {
       return state;
