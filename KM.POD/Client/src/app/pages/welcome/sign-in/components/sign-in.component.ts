@@ -48,7 +48,7 @@ export class SignInComponent extends UnsubscribableComponent implements OnInit {
         filter(action => action.type === AccountSignInActionType.SignInSuccess)
       )
       .subscribe(() => {
-        this.router.navigate([routes.WELCOME.fullPath]);
+        this.router.navigate([routes.MAIN.fullPath]);
       });
   }
 

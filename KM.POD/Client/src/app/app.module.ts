@@ -10,6 +10,7 @@ import { RoutingModule } from './core/routing/app.routing.module';
 import { WelcomeModule } from './pages/welcome/welcome.module';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MainModule } from './pages/main/main.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,6 +22,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     SharedModule,
     WelcomeModule,
+    MainModule,
     BrowserAnimationsModule,
     environment.production
       ? []

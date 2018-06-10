@@ -9,6 +9,7 @@ import { RegistrationModule } from './registration/registration.module';
 import { CoreModule } from '../../core/core.module';
 import { PasswordRecoveryModule } from './password-recovery/password-recovery.module';
 import { SignInModule } from './sign-in/sign-in.module';
+import { FooterModule } from '../../shared/components/footer/footer.module';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { SignInModule } from './sign-in/sign-in.module';
     RegistrationModule,
     PasswordRecoveryModule,
     SharedModule,
+    FooterModule,
     MatDialogModule,
     SignInModule
   ],

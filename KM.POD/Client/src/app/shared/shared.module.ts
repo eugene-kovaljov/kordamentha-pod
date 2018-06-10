@@ -5,9 +5,10 @@ import { FooterModule } from './components/footer/footer.module';
 import { DialogModule } from './components/dialogs/dialog.module';
 import { TextMaskModule } from 'angular2-text-mask';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { HeaderModule } from './components/header/header.module';
 
 @NgModule({
-  imports: [CommonModule, AngularSvgIconModule, FooterModule, DialogModule, TextMaskModule, NgSelectModule],
-  exports: [AngularSvgIconModule, FooterModule, DialogModule, TextMaskModule, NgSelectModule]
+  imports: [CommonModule, AngularSvgIconModule, DialogModule, TextMaskModule, NgSelectModule],
+  exports: [AngularSvgIconModule, DialogModule, TextMaskModule, NgSelectModule]
 })
 export class SharedModule {}
