@@ -1,4 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { select, Store } from '@ngrx/store';
+import { getPageTitle } from '../../../pages/main/main-store/selectors';
 
 @Component({
   selector: 'km-banner',
@@ -6,4 +9,10 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrls: ['./banner.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BannerComponent {}
+export class BannerComponent {
+  public get pageTitle(): Observable<string> {
+    return this.store.pipe(select(getPageTitle));
+  }
+
+  constructor(private store: Store<any>) {}
+}

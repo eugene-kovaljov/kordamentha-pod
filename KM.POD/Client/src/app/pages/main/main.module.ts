@@ -7,9 +7,21 @@ import { SharedModule } from '../../shared/shared.module';
 import { FooterModule } from '../../shared/components/footer/footer.module';
 import { HeaderModule } from '../../shared/components/header/header.module';
 import { BannerModule } from '../../shared/components/banner/banner.module';
+import { AccountComponent } from './account/account.component';
+import { StoreModule } from '@ngrx/store';
+import { mainReducers } from './main-store/reducers';
 
 @NgModule({
-  imports: [CommonModule, CoreModule, RoutingModule, SharedModule, FooterModule, HeaderModule, BannerModule],
-  declarations: [MainComponent]
+  imports: [
+    CommonModule,
+    CoreModule,
+    RoutingModule,
+    SharedModule,
+    FooterModule,
+    HeaderModule,
+    BannerModule,
+    StoreModule.forFeature('main', mainReducers)
+  ],
+  declarations: [MainComponent, AccountComponent]
 })
 export class MainModule {}
