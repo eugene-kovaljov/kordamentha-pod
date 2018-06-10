@@ -9,11 +9,10 @@ import {
 } from '@angular/core';
 import { AdDirective } from '../../../../core/directives/ad.directive';
 import { select, Store } from '@ngrx/store';
-import { takeUntil, finalize } from 'rxjs/internal/operators';
+import { takeUntil, finalize, filter } from 'rxjs/internal/operators';
 import { UnsubscribableComponent } from '../../../../shared/components/base-unsubscribe/unsubscribable.component';
 import { getCurrentStep } from '../selectors';
 import { MoveToTheStep, RegistrationStepTypes } from '../actions';
-import { filter } from 'rxjs/internal/operators';
 
 @Component({
   selector: 'km-registration-container',

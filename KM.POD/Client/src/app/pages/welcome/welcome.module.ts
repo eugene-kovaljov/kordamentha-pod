@@ -8,10 +8,18 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { MatDialogModule } from '@angular/material';
 import { RegistrationModule } from './registration/registration.module';
 import { CoreModule } from '../../core/core.module';
-import { PasswordRecoveryComponent } from './password-recovery/password-recovery.component';
+import { PasswordRecoveryModule } from './password-recovery/password-recovery.module';
 
 @NgModule({
-  imports: [CommonModule, CoreModule, RoutingModule, RegistrationModule, SharedModule, MatDialogModule],
-  declarations: [WelcomeComponent, WelcomeSidebarComponent, PasswordRecoveryComponent, SignInComponent]
+  imports: [
+    CommonModule,
+    CoreModule,
+    RoutingModule,
+    RegistrationModule,
+    PasswordRecoveryModule,
+    SharedModule,
+    MatDialogModule
+  ],
+  declarations: [WelcomeComponent, WelcomeSidebarComponent, SignInComponent]
 })
 export class WelcomeModule {}

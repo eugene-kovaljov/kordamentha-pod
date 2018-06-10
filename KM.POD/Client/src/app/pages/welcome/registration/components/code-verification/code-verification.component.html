@@ -10,7 +10,7 @@
     </div>
     <div class="authorization-form__button-group">
       <button (click)="goBack()" class="button button_medium button_light-blue authorization-form__button">Back</button>
-      <button (click)="verify()" class="button button_medium button_white-filled authorization-form__button">Verify</button>
+      <button (click)="verify()" class="button button_medium button_white-filled authorization-form__button" [disabled]="verificationCode.invalid">Verify</button>
     </div>
     <svg-icon class="account-creation-progress step-2" src="assets/img/icons/steps.svg"></svg-icon>
   </div>

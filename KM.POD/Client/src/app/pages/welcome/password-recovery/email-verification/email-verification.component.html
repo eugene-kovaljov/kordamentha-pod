@@ -1,0 +1,18 @@
+<section class="authorization">
+  <aside class="authorization-aside">
+    <div class="authorization-aside__form">
+      <h2 class="authorization-aside__title h2"><strong>Reset password</strong></h2>
+      <div class="authorization-form">
+        <div class="authorization-form__group">
+          <label class="authorization-form__label" for="email">Email</label>
+          <input class="authorization-form__input" id="email" [formControl]="email" placeholder="Email" type="email"/>
+          <div *ngIf="isControlInvalid()">email validation result</div>
+        </div>
+        <div class="authorization-form__button-group">
+          <button class="button button_medium button_light-blue authorization-form__button" (click)="cancel()">Cancel</button>
+          <button class="button button_medium reset_password button_white-filled authorization-form__button" [disabled]="email.invalid" (click)="resetPassword()">Reset password</button>
+        </div>
+      </div>
+    </div>
+  </aside>
+</section>

@@ -10,5 +10,6 @@ export interface AppRouteData {
 export const routes: AppRoutes = {
   WELCOME: { routerPath: 'welcome', fullPath: 'welcome' },
   SIGN_IN: { routerPath: 'signIn', fullPath: 'welcome/signIn' },
-  REGISTER: { routerPath: 'register', fullPath: 'welcome/register' }
+  REGISTER: { routerPath: 'register', fullPath: 'welcome/register' },
+  PASSWORD_RECOVERY: { routerPath: 'recovery', fullPath: 'welcome/recovery' }
 };
