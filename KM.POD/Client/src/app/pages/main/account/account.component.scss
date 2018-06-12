@@ -3,10 +3,11 @@
   justify-content: center;
 
   .account-form {
-    margin: 56px 341px;
+    margin: 0px 341px;
     width: 100%;
 
     &__title {
+      margin-top: 56px;
       font-size: 18px;
       line-height: 27px;
       color: #333e48;
@@ -23,6 +24,19 @@
       height: 1px;
       width: 100%;
       background-color: #c4c4c4;
+    }
+
+    .account-names,
+    .account-contacts {
+      display: grid;
+      flex-direction: row;
+      align-items: stretch;
+      grid-column-gap: 40px;
+      grid-template-columns: calc(50% - 20px) calc(50% - 20px);
+    }
+
+    .account-security {
+      width: calc(50% - 20px);
     }
   }
 }

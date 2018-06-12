@@ -4,6 +4,39 @@
       <label>Common information</label>
       <div class="line-decoration"></div>
     </div>
+    <div class="account-names">
+      <div class="account-names__name">
+        <km-form-input [label]="'First Name'" [placeholder]="'Enter your first name'" [max]="56"></km-form-input>
+      </div>
+      <div class="account-names__surname">
+        <km-form-input [label]="'Last Name'" [placeholder]="'Enter your last name'" [max]="56"></km-form-input>
+      </div>
+    </div>
+    <button class="button button_medium button_black-green">Save changes</button>
+    <div class="account-form__title">
+      <label>Contacts</label>
+      <div class="line-decoration"></div>
+    </div>
+    <div class="account-contacts">
+      <div class="account-contacts__email">
+        <km-form-input [label]="'Email'" [isRequired]="true" [type]="'email'" [placeholder]="'Enter your email'"></km-form-input>
+      </div>
+      <div class="account-contacts__phone">
+        <km-form-input [label]="'Phone'" [isRequired]="true" [type]="'tel'" [placeholder]="'Enter your phone'"></km-form-input>
+      </div>
+    </div>
+    <div class="account-form__title">
+      <label>Security</label>
+      <div class="line-decoration"></div>
+    </div>
+    <div class="account-security">
+      <div class="account-contacts__password">
+        <km-form-input [label]="'Password'" [isRequired]="true" [type]="'password'" [placeholder]="'Enter your password'"></km-form-input>
+      </div>
+    </div>
+    <div class="line-decoration"></div>
+    <button class="button button_medium button_black-green">Delete account</button>
   </div>
+
 </div>
 

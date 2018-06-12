@@ -1,0 +1,7 @@
+<ng-container>
+  <div [ngClass]="classes">
+    <label [for]="id">{{label}}<span class="required-label" *ngIf="isRequired">*</span></label>
+    <input [id]="id" [type]="type" [maxlength]="max" [formControl]='control' [placeholder]="placeholder">
+    <span class="width-counter" *ngIf="max">{{currentLength}}/{{max}}</span>
+  </div>
+</ng-container>

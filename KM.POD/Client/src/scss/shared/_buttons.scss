@@ -60,6 +60,20 @@
   }
 }
 
+.button_black-green {
+  color: white;
+  border-color: $black-green;
+  background-color: $black-green;
+
+  &:hover {
+    box-shadow: 0 0 5px $black-green;
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+}
+
 // Filled button
 .button_white-filled {
   color: $black-green;
