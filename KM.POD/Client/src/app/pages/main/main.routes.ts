@@ -3,16 +3,21 @@ import { routes } from '../../shared/constants/urls';
 import { MainComponent } from './main.component';
 import { AccountComponent } from './account/account.component';
 import { AuthGuard } from '../../core/guards/auth.guard';
+import { MainPageComponent } from './main-page/main-page.component';
 
 export const mainPageRoutes: Routes = [
   {
     path: routes.MAIN.routerPath,
     component: MainComponent,
-    data: {
-      breadcrumbs: 'Home'
-    },
     canActivate: [AuthGuard],
     children: [
+      {
+        path: '',
+        component: MainPageComponent,
+        data: {
+          breadcrumbs: 'Home'
+        }
+      },
       {
         path: routes.ACCOUNT.routerPath,
         component: AccountComponent,

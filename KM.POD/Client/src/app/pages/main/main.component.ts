@@ -10,9 +10,7 @@ import { SetPageTitle } from './main-store/actions';
 })
 export class MainComponent implements OnInit {
   //do not remove breadcrumb service
-  constructor(private breadcrumbService: BreadcrumbService, private store: Store<any>) {}
+  constructor(private breadcrumbService: BreadcrumbService) {}
 
-  public ngOnInit(): void {
-    this.store.dispatch(new SetPageTitle('Manage your Proof of Debt Claims'));
-  }
+  public ngOnInit(): void {}
 }
