@@ -20,14 +20,12 @@ import { getAccountData } from '../../selectors';
 })
 export class PasswordSetupComponent extends UnsubscribableComponent implements OnInit, RegistrationStep {
   public passwordForm: FormGroup;
-  public accountData: AccountData = {} as any;
 
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
     private store: Store<any>,
-    private effects: RegistrationEffects,
-    private changeDetector: ChangeDetectorRef
+    private effects: RegistrationEffects
   ) {
     super();
   }
@@ -35,15 +33,6 @@ export class PasswordSetupComponent extends UnsubscribableComponent implements O
   public ngOnInit(): void {
     this.initPasswordForm();
     this.setupPasswordListeners();
-    this.store
-      .pipe(
-        takeUntil(this.destroy$),
-        select(getAccountData)
-      )
-      .subscribe((accountData: AccountData) => {
-        this.accountData = accountData;
-        this.changeDetector.detectChanges();
-      });
   }
 
   public setupPasswordListeners() {

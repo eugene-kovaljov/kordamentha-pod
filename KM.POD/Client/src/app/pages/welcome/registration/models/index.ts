@@ -6,13 +6,11 @@ export interface RegistrationStep {
 export interface AccountData {
   email: string;
   phone: string;
-  code: string;
-  passwordToken: string;
+  code?: string;
+  passwordToken?: string;
 }
 
 export interface PhoneVerificationCode {
-  email: string;
-  phone: string;
   code: string;
 }
 

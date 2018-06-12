@@ -78,8 +78,6 @@ export class CodeVerificationComponent extends UnsubscribableComponent implement
         filter(action => action.type === AccountCreationActionType.PhoneConfirmed)
       )
       .subscribe((data: any) => {
-        this.accountData.passwordToken = data.passwordToken;
-        this.store.dispatch(new SaveAccountData(this.accountData));
         this.nextStep();
       });
   }
@@ -97,8 +95,6 @@ export class CodeVerificationComponent extends UnsubscribableComponent implement
   }
 
   public verify() {
-    this.accountData.code = this.verificationCode.value;
-    this.store.dispatch(new SaveAccountData(this.accountData));
     this.store.dispatch(new ConfirmPhone(this.verificationCode.value));
   }
 

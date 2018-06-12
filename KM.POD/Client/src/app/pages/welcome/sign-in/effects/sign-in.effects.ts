@@ -8,6 +8,7 @@ import { of } from 'rxjs/observable/of';
 import { switchMap } from 'rxjs/operators/switchMap';
 import { map } from 'rxjs/operators/map';
 import { AccountSignInActionType, SignIn, SignInFailed, SignInSuccess } from '../actions';
+import { share } from 'rxjs/operators/share';
 
 @Injectable()
 export class SignInEffects {
@@ -25,7 +26,8 @@ export class SignInEffects {
         return this.signInService
           .signIn(payload)
           .pipe(map((data: any) => new SignInSuccess(payload), catchError(error => of(new SignInFailed(error)))));
-      })
+      }),
+      share()
     );
   }
 }

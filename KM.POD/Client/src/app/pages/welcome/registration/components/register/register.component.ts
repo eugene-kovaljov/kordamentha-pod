@@ -8,7 +8,13 @@ import { routes } from '../../../../../shared/constants/urls';
 import { AlertComponent } from '../../../../../shared/components/dialogs/alert/alert.component';
 import { RegistrationStep } from '../../models';
 import { Store } from '@ngrx/store';
-import { AccountCreationActionType, CreateAccount, MoveToTheStep, RegistrationStepTypes, SaveAccountData } from '../../actions';
+import {
+  AccountCreationActionType,
+  CreateAccount,
+  MoveToTheStep,
+  RegistrationStepTypes,
+  SaveAccountData
+} from '../../actions';
 import { takeUntil } from 'rxjs/operators/takeUntil';
 import { mergeMap } from 'rxjs/operators/mergeMap';
 import { filter } from 'rxjs/operators/filter';
@@ -113,13 +119,10 @@ export class RegisterComponent extends UnsubscribableComponent implements OnInit
   }
 
   public showVerificationScreen(): void {
-    const formValue = { 
+    const formValue = {
       email: this.registrationForm.get('email').value,
-      phone: this.registrationForm.get('phone').value,
-      code: '',
-      passwordToken: ''
+      phone: this.registrationForm.get('phone').value
     };
-    this.store.dispatch(new SaveAccountData(formValue));
     this.store.dispatch(new CreateAccount(formValue));
   }
 }
