@@ -16,22 +16,22 @@ export class RegistrationService {
   constructor(private http: HttpClient) {}
 
   public createAccount(accountData: AccountData): Observable<PhoneVerificationCode> {
-    /* return this.http.post<string>(environment.ENDPOINTS.CREATE_ACCOUNT, accountData);*/
-    return of({ code: '12345' });
+    return this.http.post<PhoneVerificationCode>(environment.ENDPOINTS.CREATE_ACCOUNT, accountData);
+    // return of({ code: '12345' });
   }
 
   public resendVerificationCode(accountData: AccountData): Observable<PhoneVerificationCode> {
-    /* return this.http.post<string>(environment.ENDPOINTS.RESEND_VERIFICATION_CODE, accountData);*/
-    return of({ code: '12345' });
+    return this.http.post<PhoneVerificationCode>(environment.ENDPOINTS.RESEND_VERIFICATION_CODE, accountData);
+    // return of({ code: '12345' });
   }
 
   public confirmPhone(accountData: AccountData): Observable<PhoneVerificationToken> {
-    /* return this.http.post<string>(environment.ENDPOINTS.CONFIRM_PHONE, accountData);*/
-    return of({ token: '12345' });
+    return this.http.post<PhoneVerificationToken>(environment.ENDPOINTS.CONFIRM_PHONE, accountData);
+    // return of({ token: '12345' });
   }
 
   public setPassword(payload: PasswordSetupPayload): Observable<PasswordSetupResponse> {
-    /* return this.http.post<string>(environment.ENDPOINTS.SET_PASSWORD, payload);*/
-    return of({ email: '12345', token: '12345' });
+    return this.http.post<PasswordSetupResponse>(environment.ENDPOINTS.SET_PASSWORD, payload);
+    // return of({ email: '12345', token: '12345' });
   }
 }

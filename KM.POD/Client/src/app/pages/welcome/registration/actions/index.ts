@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { AccountData, PasswordSetup } from '../models';
+import { AccountData, PasswordSetup, PasswordSetupPayload } from '../models';
 
 export enum AccountCreationActionType {
   MoveToTheStep = 'Move to the step',
@@ -66,19 +66,19 @@ export class VerificationCodeUpdated implements Action {
 export class ConfirmPhone implements Action {
   readonly type = AccountCreationActionType.ConfirmPhone;
 
-  constructor(public payload: string) {}
+  constructor(public payload: any) {}
 }
 
 export class PhoneConfirmed implements Action {
   readonly type = AccountCreationActionType.PhoneConfirmed;
 
-  constructor(public payload: string) {}
+  constructor(public payload: any) {}
 }
 
 export class SetupPassword implements Action {
   readonly type = AccountCreationActionType.SetupPassword;
 
-  constructor(public payload: PasswordSetup) {}
+  constructor(public payload: PasswordSetupPayload) {}
 }
 
 export class PasswordSetupSuccess implements Action {

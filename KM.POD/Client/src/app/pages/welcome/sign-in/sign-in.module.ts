@@ -15,7 +15,7 @@ import { SignInEffects } from './effects/sign-in.effects';
     CoreModule,
     RoutingModule,
     StoreModule.forFeature('account', signInReducers),
-    EffectsModule.forFeature([SignInEffects])
+    EffectsModule.forRoot([SignInEffects])
   ],
   declarations: [SignInComponent],
   providers: [SignInService]

@@ -1,15 +1,16 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { passwordMatchValidator, passwordValidator } from '../../../../../shared/validators';
-import { RegistrationStep } from '../../models';
+import { RegistrationStep, AccountData } from '../../models';
 import { Router } from '@angular/router';
 import { routes } from '../../../../../shared/constants/urls';
 import { UnsubscribableComponent } from '../../../../../shared/components/base-unsubscribe/unsubscribable.component';
-import { Store } from '@ngrx/store';
-import { AccountCreationActionType, SetupPassword } from '../../actions';
+import { Store, select } from '@ngrx/store';
+import { AccountCreationActionType, SetupPassword, SaveAccountData } from '../../actions';
 import { RegistrationEffects } from '../../effects/registration.effects';
 import { filter } from 'rxjs/operators/filter';
 import { takeUntil } from 'rxjs/operators/takeUntil';
+import { getAccountData } from '../../selectors';
 
 @Component({
   selector: 'km-password-setup',
@@ -19,12 +20,14 @@ import { takeUntil } from 'rxjs/operators/takeUntil';
 })
 export class PasswordSetupComponent extends UnsubscribableComponent implements OnInit, RegistrationStep {
   public passwordForm: FormGroup;
+  public accountData: AccountData = {} as any;
 
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
     private store: Store<any>,
-    private effects: RegistrationEffects
+    private effects: RegistrationEffects,
+    private changeDetector: ChangeDetectorRef
   ) {
     super();
   }
@@ -32,6 +35,15 @@ export class PasswordSetupComponent extends UnsubscribableComponent implements O
   public ngOnInit(): void {
     this.initPasswordForm();
     this.setupPasswordListeners();
+    this.store
+      .pipe(
+        takeUntil(this.destroy$),
+        select(getAccountData)
+      )
+      .subscribe((accountData: AccountData) => {
+        this.accountData = accountData;
+        this.changeDetector.detectChanges();
+      });
   }
 
   public setupPasswordListeners() {

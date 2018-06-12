@@ -7,7 +7,8 @@ import {
   ConfirmPhone,
   MoveToTheStep,
   RegistrationStepTypes,
-  ResendVerificationCode
+  ResendVerificationCode,
+  SaveAccountData
 } from '../../actions';
 import { UnsubscribableComponent } from '../../../../../shared/components/base-unsubscribe/unsubscribable.component';
 import { takeUntil } from 'rxjs/operators/takeUntil';
@@ -76,7 +77,9 @@ export class CodeVerificationComponent extends UnsubscribableComponent implement
         takeUntil(this.destroy$),
         filter(action => action.type === AccountCreationActionType.PhoneConfirmed)
       )
-      .subscribe(() => {
+      .subscribe((data: any) => {
+        this.accountData.passwordToken = data.passwordToken;
+        this.store.dispatch(new SaveAccountData(this.accountData));
         this.nextStep();
       });
   }
@@ -94,6 +97,8 @@ export class CodeVerificationComponent extends UnsubscribableComponent implement
   }
 
   public verify() {
+    this.accountData.code = this.verificationCode.value;
+    this.store.dispatch(new SaveAccountData(this.accountData));
     this.store.dispatch(new ConfirmPhone(this.verificationCode.value));
   }
 

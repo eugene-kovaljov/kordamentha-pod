@@ -27,7 +27,7 @@ import { RegistrationEffects } from './effects/registration.effects';
     TextMaskModule,
     MatDialogModule,
     StoreModule.forFeature('register', registerReducers),
-    EffectsModule.forFeature([RegistrationEffects])
+    EffectsModule.forRoot([RegistrationEffects])
   ],
   declarations: [
     RegisterComponent,

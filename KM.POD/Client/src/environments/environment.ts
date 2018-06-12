@@ -1,6 +1,6 @@
 import { getApiEndpoints } from './dev/endpoints';
 
-const BACKEND_URL = '';
+const BACKEND_URL = '/';
 
 export const environment = {
   production: false,

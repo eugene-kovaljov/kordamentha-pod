@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --aot --proxy-config proxy.config.json",
-    "build": "ng build --prod",
+    "build": "ng build --prod --output-path ../wwwroot",
+    "build:prod": "ng build --prod --aot --build-optimizer --output-path ../wwwroot",
     "build-stat": "ng build --stats-json",
     "test": "ng test",
     "test-single": "ng test -sr=true -sm=false",

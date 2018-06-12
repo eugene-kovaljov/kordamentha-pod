@@ -11,6 +11,8 @@ export interface AccountData {
 }
 
 export interface PhoneVerificationCode {
+  email: string;
+  phone: string;
   code: string;
 }
 

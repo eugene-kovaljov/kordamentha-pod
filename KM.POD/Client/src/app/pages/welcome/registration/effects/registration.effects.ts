@@ -13,7 +13,8 @@ import {
   PhoneConfirmed,
   ResendVerificationCode,
   SetupPassword,
-  VerificationCodeUpdated
+  VerificationCodeUpdated,
+  SaveAccountData
 } from '../actions';
 import { map } from 'rxjs/operators/map';
 import { switchMap } from 'rxjs/operators/switchMap';
@@ -22,6 +23,7 @@ import { of } from 'rxjs/observable/of';
 import { withLatestFrom } from 'rxjs/operators/withLatestFrom';
 import { AccountData, PasswordSetupPayload, PhoneVerificationCode, PhoneVerificationToken } from '../models';
 import { getAccountData, registerState } from '../selectors';
+import { finalize } from 'rxjs/operators';
 
 @Injectable()
 export class RegistrationEffects {
@@ -65,7 +67,9 @@ export class RegistrationEffects {
       switchMap((accountData: AccountData) => {
         return this.registrationService
           .confirmPhone(accountData)
-          .pipe(map((data: PhoneVerificationToken) => new PhoneConfirmed(data.token)));
+          .pipe(
+            map((data: PhoneVerificationToken) => new PhoneConfirmed(data))
+          )
       })
     );
 
