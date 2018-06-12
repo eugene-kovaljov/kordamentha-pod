@@ -23,7 +23,6 @@ export class MainComponent implements OnInit, OnDestroy {
     this.subscription = this.hs.getData().subscribe(cssClass => {
       this.dataPassed = cssClass;
       this.showHeader = false;
-      console.log('hurray');
     });
   }
 
