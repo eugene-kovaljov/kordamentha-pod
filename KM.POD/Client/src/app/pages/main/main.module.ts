@@ -10,6 +10,7 @@ import { BannerModule } from '../../shared/components/banner/banner.module';
 import { AccountComponent } from './account/account.component';
 import { StoreModule } from '@ngrx/store';
 import { mainReducers } from './main-store/reducers';
+import { HeaderService } from './service/header.service';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { mainReducers } from './main-store/reducers';
     BannerModule,
     StoreModule.forFeature('main', mainReducers)
   ],
-  declarations: [MainComponent, AccountComponent]
+  declarations: [MainComponent, AccountComponent],
+  providers: [HeaderService]
 })
 export class MainModule {}

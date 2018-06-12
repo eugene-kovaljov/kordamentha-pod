@@ -1,0 +1,269 @@
+@import '../../../../scss/helpers/vars';
+@import '../../../../scss/helpers/mixins';
+$account-sidebar-padding: 20px;
+
+.account {
+  display: flex;
+
+  min-height: 100vh;
+
+  align-items: stretch;
+}
+
+.account-sidebar {
+  width: 320px;
+  min-width: 320px;
+  padding-right: $account-sidebar-padding;
+  padding-left: $account-sidebar-padding;
+
+  color: white;
+  background-color: $black-green;
+
+  &__top {
+    padding-top: 16px;
+    padding-bottom: 16px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  &__logo {
+    color: white;
+    img {
+      box-shadow: inset 0 0 0 1px transparent;
+    }
+  }
+
+  &__section {
+    padding-top: 24px;
+    padding-bottom: 24px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  &__title {
+    position: relative;
+
+    margin-bottom: 12px;
+
+    &:after {
+      @include transition(transform);
+
+      position: absolute;
+      top: 50%;
+      right: 0;
+
+      padding: 3px;
+
+      content: '';
+      transform: translateY(-50%) rotate(45deg);
+
+      border: 1px solid white;
+      border-right: none;
+      border-bottom: none;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:hover:after {
+      transform: translateY(-50%) rotate(225deg);
+    }
+  }
+
+  &__title.is-expanded:after {
+    transform: translateY(-50%) rotate(225deg);
+  }
+}
+
+.account-user {
+  display: flex;
+
+  align-items: flex-start;
+
+  &__img {
+    width: 56px;
+    min-width: 56px;
+    height: 56px;
+
+    border-radius: 50%;
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+
+    width: calc(100% - 56px - 12px * 2 - 32px); //56px - img width, 32px - dropdown width, 12px - margin left and right
+    margin-right: 12px;
+    margin-left: 12px;
+    padding-top: 4px;
+
+    align-items: flex-start;
+  }
+
+  &__name {
+    @include font(16px, 400, 24px);
+
+    position: relative;
+
+    padding-right: 10px;
+
+    color: white;
+
+    &:after {
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      width: 8px;
+      height: 8px;
+
+      content: '';
+
+      border-radius: 50%;
+    }
+  }
+
+  &__name_active {
+    &:after {
+      background: $pigmented-green;
+    }
+  }
+
+  &__role {
+    @include font(14px, 400, 21px);
+
+    color: $pale-gray;
+  }
+
+  &__dropdown {
+    position: relative;
+
+    display: flex;
+
+    width: 32px;
+    min-width: 32px;
+    height: 32px;
+    margin-left: auto;
+
+    color: white;
+    background-color: $black-green;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:hover .account-user-dropdown {
+      display: block;
+    }
+  }
+}
+
+.account-sidebar-menu {
+  list-style: none;
+
+  &__link {
+    @include font(16px, 400, 24px);
+    @include transition();
+
+    display: flex;
+
+    margin-right: -$account-sidebar-padding;
+    margin-left: -$account-sidebar-padding;
+    padding: 12px $account-sidebar-padding;
+
+    text-decoration: none;
+
+    color: $light-blue;
+
+    align-items: center;
+    justify-content: space-between;
+
+    &:hover {
+      color: $black-green;
+      background: $light-blue;
+    }
+  }
+
+  &__item.is-active &__link {
+    color: white;
+  }
+
+  &__counter {
+    color: white;
+  }
+
+  &__link:hover &__counter {
+    color: currentColor;
+  }
+}
+
+.account-user-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+
+  display: none;
+
+  list-style: none;
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+  &__link {
+    @include font(16px, 400, 24px);
+    @include transition(color);
+
+    display: flex;
+
+    min-width: 180px;
+    padding: 13px 15px;
+
+    white-space: nowrap;
+    text-decoration: none;
+
+    color: $light-blue;
+    background-color: $black-green;
+
+    align-items: center;
+
+    &:hover {
+      color: white;
+    }
+
+    .svg-icon {
+      width: 14px;
+      min-width: 14px;
+      margin-right: 12px;
+    }
+  }
+}
+
+.account-body {
+  display: flex;
+  flex-direction: column;
+
+  width: calc(100% - 320px); // 320px - account-sidebar width
+
+  background-color: white;
+
+  align-items: stretch;
+}
+
+.account-header {
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+  color: white;
+  background-color: $deep-blue;
+}
+
+.account-main {
+  padding-top: 56px;
+  padding-bottom: 56px;
+
+  flex-grow: 1;
+}

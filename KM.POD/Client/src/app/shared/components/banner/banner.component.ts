@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { select, Store } from '@ngrx/store';
 import { getPageTitle } from '../../../pages/main/main-store/selectors';
@@ -10,6 +10,7 @@ import { getPageTitle } from '../../../pages/main/main-store/selectors';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BannerComponent {
+  @Input() cls = '';
   public get pageTitle(): Observable<string> {
     return this.store.pipe(select(getPageTitle));
   }

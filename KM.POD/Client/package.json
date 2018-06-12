@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --aot --proxy-config proxy.config.json",
+    "start": "ng serve --aot --proxy-config proxy.config.json --sourceMap",
     "build": "ng build --prod --output-path ../wwwroot",
     "build:prod": "ng build --prod --aot --build-optimizer --output-path ../wwwroot",
     "build-stat": "ng build --stats-json",
