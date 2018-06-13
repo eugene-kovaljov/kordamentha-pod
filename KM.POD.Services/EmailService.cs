@@ -1,4 +1,4 @@
-﻿using System.Threading.Tasks;
+using System.Threading.Tasks;
 
 namespace KM.POD.Services
 {
@@ -7,7 +7,8 @@ namespace KM.POD.Services
         public Task Send()
         {
             // TODO: complete external email service
-            return Task.CompletedTask;
+            return 
+Task.CompletedTask;
         }
     }
 }
