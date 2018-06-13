@@ -1,7 +1,12 @@
 <ng-container>
   <div [ngClass]="classes">
     <label [for]="id">{{label}}<span class="required-label" *ngIf="isRequired">*</span></label>
-    <input [id]="id" [type]="type" [maxlength]="max" [formControl]='control' [placeholder]="placeholder">
+    <div class="input-wrapper">
+      <input [id]="id" [type]="type" [maxlength]="max" [formControl]='control' [placeholder]="placeholder">
+      <button class="button button_medium button_black-green">
+        <svg-icon src="assets/img/icons/pen.svg"></svg-icon>
+      </button>
+    </div>
     <span class="width-counter" *ngIf="max">{{currentLength}}/{{max}}</span>
   </div>
 </ng-container>
