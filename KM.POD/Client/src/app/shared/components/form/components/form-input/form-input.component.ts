@@ -1,4 +1,13 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, forwardRef, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  forwardRef,
+  Input,
+  OnInit,
+  Output,
+  EventEmitter
+} from '@angular/core';
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { UnsubscribableComponent } from '../../../base-unsubscribe/unsubscribable.component';
 import { takeUntil } from 'rxjs/operators/takeUntil';
@@ -34,6 +43,10 @@ export class FormInputComponent extends UnsubscribableComponent implements OnIni
 
   @Input() public placeholder = '';
 
+  @Input() public editButton = false;
+
+  @Output() public valueEmitter = new EventEmitter();
+
   public control: FormControl = new FormControl();
 
   public currentLength = 0;
@@ -62,6 +75,10 @@ export class FormInputComponent extends UnsubscribableComponent implements OnIni
   setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;
     isDisabled ? this.control.disable() : this.control.enable();
+  }
+
+  public emitValue(): void {
+    this.valueEmitter.emit(this.control.value);
   }
 
   private propagateChange = (_: any) => {};

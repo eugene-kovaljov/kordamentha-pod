@@ -247,3 +247,11 @@
     color: white;
   }
 }
+
+km-form-input {
+  width: 100%;
+}
+
+.form_input {
+  width: calc(100% - 48px);
+}

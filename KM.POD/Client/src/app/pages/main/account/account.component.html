@@ -19,10 +19,10 @@
     </div>
     <div class="account-contacts">
       <div class="account-contacts__email">
-        <km-form-input [label]="'Email'" [isRequired]="true" [type]="'email'" [placeholder]="'Enter your email'" formControlName="email"></km-form-input>
+        <km-form-input [label]="'Email'" [isRequired]="true" [type]="'email'" [placeholder]="'Enter your email'" [editButton]="true" (valueEmitter)="getEmail($event)" formControlName="email"></km-form-input>
       </div>
       <div class="account-contacts__phone">
-        <km-form-input [label]="'Phone'" [isRequired]="true" [type]="'tel'" [placeholder]="'Enter your phone'" formControlName="phone"></km-form-input>
+        <km-form-input [label]="'Phone'" [isRequired]="true" [type]="'tel'" [placeholder]="'Enter your phone'" [editButton]="true" (valueEmitter)="getPhone($event)" formControlName="phone"></km-form-input>
       </div>
     </div>
     <div class="account-form__title">
@@ -31,10 +31,7 @@
     </div>
     <div class="account-security">
       <div class="account-contacts__password">
-        <km-form-input [label]="'Password'" [isRequired]="true" [type]="'password'" [placeholder]="'Enter your password'" formControlName="password"></km-form-input>
-        <button class="edit-wrapper" (click)=raiseAccountData()>
-          <img src="assets/img/icons/edit.svg">
-        </button>
+        <km-form-input [label]="'Password'" [isRequired]="true" [type]="'password'" [placeholder]="'Enter your password'" [editButton]="true" (valueEmitter)="getPass($event)" formControlName="password"></km-form-input>
       </div>
     </div>
     <div class="line-decoration separator"></div>

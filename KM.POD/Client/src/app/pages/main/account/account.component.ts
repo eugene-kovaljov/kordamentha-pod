@@ -1,8 +1,7 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { SetPageTitle } from '../main-store/actions';
 import { Store } from '@ngrx/store';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { EventEmitter } from 'events';
 
 @Component({
   selector: 'km-account',
@@ -13,6 +12,9 @@ export class AccountComponent implements OnInit {
   @Output() formEmitter = new EventEmitter();
 
   public accountForms: FormGroup;
+  public password: string;
+  public email: string;
+  public phone: string;
 
   constructor(private store: Store<any>, private fb: FormBuilder) {}
 
@@ -29,5 +31,17 @@ export class AccountComponent implements OnInit {
 
   public raiseAccountData(): void {
     this.formEmitter.emit(this.accountForms.getRawValue());
+  }
+
+  public getPass(password): void {
+    this.password = password;
+  }
+
+  public getEmail(password): void {
+    this.password = password;
+  }
+
+  public getPhone(password): void {
+    this.password = password;
   }
 }
