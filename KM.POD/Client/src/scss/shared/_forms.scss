@@ -4,8 +4,8 @@
   padding: 47px 20px 56px;
 
   color: white;
-  background: linear-gradient(rgba($black-green, 0.8), rgba($black-green, 0.8)),
-    url('/src/assets/img/main-bg.png') repeat-y;
+  background-image: linear-gradient(rgba(51, 62, 72, 0.8), rgba(51, 62, 72, 0.8)), url('/../assets/img/bg-main.png');
+  background-size: auto 100vh;
   background-position: 0 397px;
   align-self: stretch;
 
@@ -18,11 +18,11 @@
     height: 100vh;
   }
   @media (min-width: $lg) and (max-width: $xl - 1) {
-    background-position: right;
+    background-position: -61.48vw 0;
     padding: 0 25px 25px 25px;
   }
   @media (min-width: $xl) {
-    background-position: clac(100% - 38.52%) 0;
+    background-position: -61.48vw 0;
     padding: 0 70px 20px;
   }
 
