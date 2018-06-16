@@ -16,5 +16,6 @@ export const routes: AppRoutes = {
   REGISTER: { routerPath: 'register', fullPath: 'welcome/register' },
   PASSWORD_RECOVERY: { routerPath: 'recovery', fullPath: 'welcome/recovery' },
   MAIN: { routerPath: 'main', fullPath: 'main' },
-  ACCOUNT: { routerPath: 'account', fullPath: 'main/account' }
+  ACCOUNT: { routerPath: 'account', fullPath: 'main/account' },
+  ADMIN: { routerPath: 'admin', fullPath: 'admin' }
 };

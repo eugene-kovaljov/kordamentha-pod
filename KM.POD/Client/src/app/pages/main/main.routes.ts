@@ -4,6 +4,7 @@ import { MainComponent } from './main.component';
 import { AccountComponent } from './account/account.component';
 import { AuthGuard } from '../../core/guards/auth.guard';
 import { MainPageComponent } from './main-page/main-page.component';
+import { DeactivateGuard } from '../../core/guards/deactivate.guard';
 
 export const mainPageRoutes: Routes = [
   {
@@ -23,7 +24,8 @@ export const mainPageRoutes: Routes = [
         component: AccountComponent,
         data: {
           breadcrumbs: 'Account'
-        }
+        },
+        canDeactivate: [DeactivateGuard]
       }
     ]
   }

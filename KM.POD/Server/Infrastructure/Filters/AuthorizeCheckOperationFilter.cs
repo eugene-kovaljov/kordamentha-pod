@@ -10,8 +10,8 @@ namespace KM.POD.WebSPA.Server.Infrastructure.Filters
         public void Apply(Swashbuckle.AspNetCore.Swagger.Operation operation, OperationFilterContext context)
         {
             // Check for authorize attribute
-            var hasAuthorize = context.ApiDescription.ControllerAttributes().OfType<AuthorizeAttribute>().Any() ||
-                               context.ApiDescription.ActionAttributes().OfType<AuthorizeAttribute>().Any();
+            var hasAuthorize = context.ControllerActionDescriptor.GetControllerAndActionAttributes(false)
+                .OfType<AuthorizeAttribute>().Any();
 
             if (hasAuthorize)
             {

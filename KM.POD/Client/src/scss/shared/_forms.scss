@@ -4,22 +4,25 @@
   padding: 47px 20px 56px;
 
   color: white;
-  background: rgba($black-green, 0.8);
-
+  background: linear-gradient(rgba($black-green, 0.8), rgba($black-green, 0.8)),
+    url('/src/assets/img/main-bg.png') repeat-y;
+  background-position: 0 397px;
   align-self: stretch;
 
   @media (min-width: $lg) {
+    background-position: 0 633px;
     position: fixed;
     top: 0;
     right: 0;
-
     width: $auth-aside-width;
     height: 100vh;
   }
   @media (min-width: $lg) and (max-width: $xl - 1) {
+    background-position: right;
     padding: 0 25px 25px 25px;
   }
   @media (min-width: $xl) {
+    background-position: clac(100% - 38.52%) 0;
     padding: 0 70px 20px;
   }
 
@@ -113,6 +116,7 @@
 
     margin-top: 9px;
     padding: 14px 12px;
+    padding-right: 24px;
 
     color: white;
     border: 1px solid $deep-blue;
@@ -246,4 +250,12 @@
   &.step-4 .step_4 {
     color: white;
   }
+}
+
+km-form-input {
+  width: 100%;
+}
+
+.form_input {
+  width: calc(100% - 48px);
 }

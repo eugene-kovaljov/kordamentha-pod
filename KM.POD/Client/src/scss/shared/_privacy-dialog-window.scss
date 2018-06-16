@@ -33,20 +33,40 @@
 .dialog {
   display: flex;
   flex-direction: column;
-
+  overflow: hidden;
   align-items: stretch;
 
   @media (min-width: $sm) {
-    min-width: 320px;
+    min-width: calc(320px - 48px);
   }
 
   &__title {
     font-weight: 500;
-
     margin-bottom: 24px;
+  }
+
+  &__content {
+    padding-top: 8px;
+    display: flex;
+  }
+
+  &__padding-top {
+    padding-top: 16px;
   }
 
   &__button {
     margin-top: 24px;
+  }
+
+  &__submit {
+    padding: 0 0;
+    box-sizing: border-box;
+  }
+
+  &__cancel {
+    margin-right: 24px;
+    border: 1px solid #50748a;
+    color: #50748a;
+    box-sizing: border-box;
   }
 }

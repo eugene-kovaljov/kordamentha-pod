@@ -1,5 +1,6 @@
 ﻿using KM.POD.Identity.Enums;
 using KM.POD.Identity.Models;
+using KM.POD.WebSPA.Server.Infrastructure.Attributes;
 using KM.POD.WebSPA.ViewModels;
 using KM.POD.WebSPA.ViewModels.User;
 using Microsoft.AspNetCore.Authorization;
@@ -35,6 +36,7 @@ namespace KM.POD.WebSPA.Server.Controllers
             var user = await userManager.FindByIdAsync(userInfo.UserId.ToString());
             if (user == null)
             {
+                logger.LogWarning($"User info not found: {userInfo.UserId}");
                 return NotFound(userInfo.UserId);
             }
 
@@ -53,7 +55,7 @@ namespace KM.POD.WebSPA.Server.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetInfo(Guid userId)
+        public async Task<IActionResult> GetInfo([RequiredGuid]Guid userId)
         {
             var user = await userManager.FindByIdAsync(userId.ToString());
             if (user == null)
@@ -101,6 +103,7 @@ namespace KM.POD.WebSPA.Server.Controllers
             var user = await userManager.FindByIdAsync(userInfo.UserId.ToString());
             if (user == null)
             {
+                logger.LogWarning($"User info not found: {userInfo.UserId}");
                 return NotFound(userInfo.UserId);
             }
             if (IsEmployee && (!user.PhoneNumber.Equals(userInfo.Phone, StringComparison.InvariantCultureIgnoreCase) ||

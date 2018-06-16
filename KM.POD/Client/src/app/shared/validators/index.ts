@@ -34,3 +34,11 @@ export function emailValidator({ value }: FormControl): ValidationErrors {
   }
   return null;
 }
+
+export function phoneValidator({ value }: FormControl): ValidationErrors {
+  const phone = /^\+(61)+(\d{7})$/.test(value);
+  if (!phone) {
+    return { invalidEmail: 'error message' };
+  }
+  return null;
+}

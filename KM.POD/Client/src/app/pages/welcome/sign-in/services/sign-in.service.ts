@@ -10,7 +10,7 @@ export class SignInService {
   constructor(private http: HttpClient) {}
 
   public signIn(model: LoginPayload): Observable<any> {
-    return this.http.post<string>(environment.ENDPOINTS.SIGN_IN, model);
-    // return of('good');
+    // return this.http.post<string>(environment.ENDPOINTS.SIGN_IN, model);
+    return of('good');
   }
 }

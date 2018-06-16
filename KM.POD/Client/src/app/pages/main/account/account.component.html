@@ -1,4 +1,4 @@
-<div class="main-wrapper">
+<div class="main-wrapper" [formGroup]="accountForm">
   <div class="account-form">
     <div class="account-form__title">
       <label>Common information</label>
@@ -6,23 +6,23 @@
     </div>
     <div class="account-names">
       <div class="account-names__name">
-        <km-form-input [label]="'First Name'" [placeholder]="'Enter your first name'" [max]="56"></km-form-input>
+        <km-form-input id="accountFirstName" label="First Name" placeholder="Enter your first name" [max]="56" formControlName="firstName"></km-form-input>
       </div>
       <div class="account-names__surname">
-        <km-form-input [label]="'Last Name'" [placeholder]="'Enter your last name'" [max]="56"></km-form-input>
+        <km-form-input id="accountLastName" label="Last Name" placeholder="'Enter your last name'" [max]="56" formControlName="lastName"></km-form-input>
       </div>
     </div>
-    <button class="button button_medium button_black-green">Save changes</button>
+    <button class="button button_medium button_black-green" (click)="saveChanges()" [disabled]="!isSaveEnabled">Save changes</button>
     <div class="account-form__title">
       <label>Contacts</label>
       <div class="line-decoration"></div>
     </div>
     <div class="account-contacts">
       <div class="account-contacts__email">
-        <km-form-input [label]="'Email'" [isRequired]="true" [type]="'email'" [placeholder]="'Enter your email'"></km-form-input>
+        <km-form-input id="accountEmail" label="email" [isRequired]="true" type="email" placeholder="Enter your email" [editButton]="true" (valueEmitter)="getEmail($event)" formControlName="email"></km-form-input>
       </div>
       <div class="account-contacts__phone">
-        <km-form-input [label]="'Phone'" [isRequired]="true" [type]="'tel'" [placeholder]="'Enter your phone'"></km-form-input>
+        <km-form-input id="accountPhone" label="Phone" [isRequired]="true" type="tel" placeholder="Enter your phone" [editButton]="true" (valueEmitter)="getPhone($event)" formControlName="phone"></km-form-input>
       </div>
     </div>
     <div class="account-form__title">
@@ -31,11 +31,11 @@
     </div>
     <div class="account-security">
       <div class="account-contacts__password">
-        <km-form-input [label]="'Password'" [isRequired]="true" [type]="'password'" [placeholder]="'Enter your password'"></km-form-input>
+        <km-form-input id="accountPassword" label="Password" [isRequired]="true" type="password" placeholder="Enter your password" [editButton]="true" (valueEmitter)="getPass($event)" formControlName="password"></km-form-input>
       </div>
     </div>
     <div class="line-decoration separator"></div>
-    <button class="button button_medium button_black-green account-form__button">Delete account</button>
+    <button class="button button_medium button_black-green account-form__button" (click)="deleteDialog()">Delete account</button>
   </div>
 
 </div>

@@ -1,0 +1,14 @@
+<div class="dialog">
+  <h3 class="dialog__title dialog__padding-top h3">{{getTitle}}</h3>
+  <div class="dialog__content">
+    <p>{{getContent}}</p>
+  </div>
+  <div class="dialog__content">
+    <button class="button button_confirm button_white-filled dialog__button dialog__cancel"
+            mat-dialog-close
+            (click)="canceled()">{{getCancelButtonText}}</button>
+    <button class="button button_confirm button_black-green dialog__button dialog__submit"
+            mat-dialog-confirm
+            (click)="confirmed()">{{getConfirmButtonText}}</button>
+  </div>
+</div>

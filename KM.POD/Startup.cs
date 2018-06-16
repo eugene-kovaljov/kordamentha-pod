@@ -1,4 +1,4 @@
-﻿using KM.POD.Data.Providers;
+﻿using KM.POD.Data;
 using KM.POD.Identity;
 using KM.POD.Identity.Models;
 using KM.POD.Services;
@@ -38,6 +38,7 @@ namespace KM.POD.WebSPA
             services.AddTransient<IEmailService, EmailService>();
 
             services.AddScoped<IConnectionProvider, ConnectionProvider>();
+            services.AddScoped<IJobRepository, JobRepository>();
 
             ConfigureAuthService(services);
 
@@ -68,6 +69,8 @@ namespace KM.POD.WebSPA
             ConfigureAuth(app);
             ConfigureSwagger(app);
 
+            app.UseMvc();
+            app.UseStatusCodePagesWithReExecute("/");
             app.UseDefaultFiles(); 
             app.UseStaticFiles(); 
 
@@ -76,8 +79,6 @@ namespace KM.POD.WebSPA
             {
                 routes.MapHub<SignalRHub>("/signalR");
             });
-
-            app.UseMvc();
         }
 
         #region Registration

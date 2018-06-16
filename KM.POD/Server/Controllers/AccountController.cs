@@ -130,6 +130,45 @@ namespace KM.POD.WebSPA.Server.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = nameof(ApplicationRole.SystemAdministrator))]
+        public async Task<IActionResult> RegisterEmployee([FromBody] RegisterEmployeeViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            // TODO: add converters
+            var user = new ApplicationUser
+            {
+                UserName = model.Email,
+                Email = model.Email,
+                PhoneNumber = model.Phone,
+                PhoneNumberConfirmed = true
+            };
+            // TODO: add office assignment when implemented
+            var creationResult = await userManager.CreateAsync(user, model.Password);
+            if (!creationResult.Succeeded)
+            {
+                creationResult.Errors.ToList().ForEach(x => {
+                    logger.LogWarning($"User {model.Email} creation error: {x.Description}.");
+                    ModelState.AddModelError(string.Empty, x.Description);
+                });
+                return BadRequest(ModelState);
+            }
+            var roleAssignementResult = await userManager.AddToRoleAsync(user, nameof(ApplicationRole.KMEmployee));
+            if (!roleAssignementResult.Succeeded)
+            {
+                roleAssignementResult.Errors.ToList().ForEach(x => {
+                    logger.LogWarning($"User role {model.Email} assignment error: {x.Description}.");
+                    ModelState.AddModelError(string.Empty, x.Description);
+                });
+                return BadRequest(ModelState);
+            }
+            logger.LogInformation($"User {model.Email} created.");
+            return Ok();
+        }
+
+        [HttpPost]
         [AllowAnonymous]
         public async Task<IActionResult> SetPassword([FromBody] SetPasswordViewModel model)
         {

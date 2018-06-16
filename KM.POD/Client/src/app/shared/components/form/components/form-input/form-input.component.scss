@@ -1,4 +1,4 @@
-div {
+.labelled-input-wrapper {
   margin-top: 24px;
 }
 input,
@@ -19,6 +19,11 @@ input {
   background-color: #fff;
   background-clip: padding-box;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  &:disabled {
+    background-color: #d8d9d6;
+    border-color: #d8d9d6;
+  }
 }
 
 label {
@@ -40,4 +45,10 @@ label {
 
 .input-wrapper {
   display: flex;
+}
+
+.button-svg-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

@@ -6,6 +6,7 @@ namespace KM.POD.WebSPA.ViewModels
     {
         [Required]
         [EmailAddress]
+        [StringLength(50)]
         [Display(Name = "Email")]
         public string Email { get; set; }
     }

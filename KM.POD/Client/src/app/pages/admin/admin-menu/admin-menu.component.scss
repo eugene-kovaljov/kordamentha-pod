@@ -1,0 +1,136 @@
+@import '../../../../scss/helpers';
+
+.admin-menu {
+  height: 100%;
+  width: 320px;
+  background-color: #333e48;
+  color: #ffffff;
+  font-size: 18px;
+  line-height: 27px;
+  box-shadow: 1px 0 28px #333e48;
+
+  &--logo {
+    line-height: 1;
+    margin: 0 20px;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .account-profile {
+    display: flex;
+    align-items: center;
+    margin: 0 20px;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+    .account-profile--avatar {
+      width: 56px;
+      height: 56px;
+      overflow: hidden;
+      border-radius: 28px;
+    }
+
+    &--info {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+
+      .action-menu-icon {
+        width: 32px;
+        height: 32px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .svg-icon {
+          width: 24px;
+          height: 24px;
+        }
+
+        &:hover {
+          box-shadow: 0 0 7px #232b32;
+          transition: all 0.2s linear;
+        }
+      }
+    }
+
+    .account-profile-data {
+      margin-left: 12px;
+      .account-profile-name {
+        font-size: 16px;
+        line-height: 24px;
+      }
+
+      .account-profile-role {
+        font-size: 14px;
+        line-height: 21px;
+        color: #cccccc;
+      }
+    }
+  }
+}
+
+.account-menu-items {
+  &__item {
+    @include font(16px, 300, 24px);
+    color: #9ed1e9;
+    padding: 12px 20px;
+    cursor: pointer;
+    margin: 0 -20px;
+
+    display: flex;
+    justify-content: space-between;
+
+    &:hover {
+      background-color: #9ed1e9;
+      color: #333e48;
+      .item-counter {
+        color: #333e48;
+      }
+    }
+
+    &.active,
+    .item-counter {
+      color: #ffffff;
+    }
+  }
+  .mat-expansion-panel:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .mat-expansion-panel {
+    background-color: #333e48;
+    color: #ffffff;
+    margin: 0 20px;
+
+    .mat-expansion-panel-header {
+      padding: 12px 4px 0 0;
+    }
+
+    .mat-expansion-panel-header-title {
+      @include font(18px, 400, 27px);
+      color: #ffffff;
+    }
+
+    .mat-expansion-panel-body {
+      padding: 0;
+    }
+
+    .mat-expansion-indicator::after,
+    .mat-expansion-panel-header-description {
+      color: #ffffff;
+    }
+  }
+
+  .mat-expansion-panel:not([class*='mat-elevation-z']) {
+    box-shadow: none;
+  }
+}
+
+.account-profile-menu-dropdown {
+  .mat-menu-item {
+    @include font(16px, 400, 24px);
+    color: #ffffff;
+  }
+
+  background-color: #333e48;
+}

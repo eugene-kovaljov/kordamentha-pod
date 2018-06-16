@@ -2,8 +2,7 @@
 
 namespace KM.POD.WebSPA.Server.Infrastructure.Exceptions
 {
-    [Serializable]
-    public class PodDomainException : Exception
+    public abstract class PodDomainException : Exception
     {
         public PodDomainException() : this("")
         {

@@ -1,8 +1,18 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, forwardRef, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  forwardRef,
+  Input,
+  OnInit,
+  Output,
+  EventEmitter
+} from '@angular/core';
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { UnsubscribableComponent } from '../../../base-unsubscribe/unsubscribable.component';
 import { takeUntil } from 'rxjs/operators/takeUntil';
 import { distinctUntilChanged } from 'rxjs/operators/distinctUntilChanged';
+import { getTime } from 'date-fns';
 
 @Component({
   selector: 'km-form-input',
@@ -28,11 +38,15 @@ export class FormInputComponent extends UnsubscribableComponent implements OnIni
 
   @Input() public type = 'text';
 
-  @Input() public id = `${new Date().getUTCMilliseconds()}`;
+  @Input() public id = `${getTime(new Date())}`;
 
   @Input() public isRequired = false;
 
   @Input() public placeholder = '';
+
+  @Input() public editButton = false;
+
+  @Output() public valueEmitter = new EventEmitter();
 
   public control: FormControl = new FormControl();
 
@@ -62,6 +76,10 @@ export class FormInputComponent extends UnsubscribableComponent implements OnIni
   setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;
     isDisabled ? this.control.disable() : this.control.enable();
+  }
+
+  public emitValue(): void {
+    this.valueEmitter.emit(this.control.value);
   }
 
   private propagateChange = (_: any) => {};

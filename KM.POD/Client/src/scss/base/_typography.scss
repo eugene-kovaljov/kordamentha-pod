@@ -2,34 +2,41 @@
 
 h1,
 .h1 {
-  @include font(34px, 300, 45px);
+  font: 300 normal 34px 'Weissenhof Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  line-height: 45px;
 
-  @media (min-width: $md) {
-    @include font(45px, 300, 56px);
+  @media (min-width: 768px) {
+    font: 300 normal 45px 'Weissenhof Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 56px;
   }
 }
 
 h2,
 .h2 {
-  @include font(24px, 300, 32px);
+  font: 300 normal 24px 'Weissenhof Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  line-height: 32px;
 
-  @media (min-width: $xl) {
-    @include font(34px, 300, 45px);
+  @media (min-width: 1200px) {
+    font: 300 normal 34px 'Weissenhof Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 45px;
   }
 }
 
 h3,
 .h3 {
-  @include font(24px, 300, 32px);
+  font: 300 normal 24px 'Weissenhof Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  line-height: 32px;
 }
 
 h4,
 .h4 {
-  @include font(18px, 500, 27px);
+  font: 300 normal 18px 'Weissenhof Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  line-height: 27px;
 }
 
 p {
-  @include font(16px, 400, 24px);
+  font: 300 normal 16px 'Weissenhof Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  line-height: 24px;
 }
 
 .uppercase {

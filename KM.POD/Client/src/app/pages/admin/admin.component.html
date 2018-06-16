@@ -1,0 +1,16 @@
+<mat-sidenav-container class="example-container" >
+  <mat-sidenav #sidenav mode="side" [opened]="true">
+    <km-admin-menu></km-admin-menu>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div class="admin-app" [ngClass]="{'has-sidebar': isSidebarShown}">
+      <main class="main">
+        <km-banner></km-banner>
+        <router-outlet></router-outlet>
+      </main>
+      <km-footer></km-footer>
+    </div>
+    <km-sidebar></km-sidebar>
+  </mat-sidenav-content>
+</mat-sidenav-container>

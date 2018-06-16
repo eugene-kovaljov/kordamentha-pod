@@ -2,3 +2,14 @@
   padding-bottom: 52px;
   min-height: 94vh;
 }
+
+:host /deep/ .main-app {
+  &.has-sidebar {
+    width: calc(100% - 38.52%);
+    transition: width 0.2s linear;
+    .header {
+      width: calc(100% - 38.52%);
+      transition: width 0.2s linear;
+    }
+  }
+}

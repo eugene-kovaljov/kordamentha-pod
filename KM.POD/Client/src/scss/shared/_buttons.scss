@@ -20,6 +20,11 @@
   &:hover {
     cursor: pointer;
   }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
 }
 
 .button-home {
@@ -30,6 +35,17 @@
 .button_medium {
   @include font(16px, 400, 24px);
 
+  padding: 11px 22px;
+}
+
+.button_edit {
+  padding: 0;
+  min-width: 48px;
+}
+
+.button_confirm {
+  width: 124px;
+  @include font(16px, 400, 24px);
   padding: 11px 22px;
 }
 

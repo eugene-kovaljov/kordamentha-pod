@@ -41,6 +41,9 @@
       align-items: stretch;
       grid-column-gap: 40px;
       grid-template-columns: calc(50% - 20px) calc(50% - 20px);
+      &__password {
+        display: flex;
+      }
     }
 
     .account-security {

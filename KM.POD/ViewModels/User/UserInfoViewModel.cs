@@ -1,11 +1,12 @@
-﻿using System;
+﻿using KM.POD.WebSPA.Server.Infrastructure.Attributes;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace KM.POD.WebSPA.ViewModels
 {
     public class UserInfoViewModel
     {
-        [Required]
+        [RequiredGuid]
         public Guid UserId { get; set; }
         [Required]
         [MaxLength(50)]

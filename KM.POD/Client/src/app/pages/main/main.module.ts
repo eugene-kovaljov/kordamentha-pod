@@ -12,6 +12,7 @@ import { StoreModule } from '@ngrx/store';
 import { mainReducers } from './main-store/reducers';
 import { MainPageComponent } from './main-page/main-page.component';
 import { AccountModule } from './account/account.module';
+import { SidebarModule } from '../../shared/components/sidebar/sidebar.module';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { AccountModule } from './account/account.module';
     SharedModule,
     FooterModule,
     HeaderModule,
+    SidebarModule,
     BannerModule,
     AccountModule,
     StoreModule.forFeature('main', mainReducers)

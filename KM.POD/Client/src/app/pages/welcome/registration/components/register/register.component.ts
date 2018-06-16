@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { emailValidator, phoneMask } from '../../../../../shared/validators';
+import { emailValidator, phoneMask, phoneValidator } from '../../../../../shared/validators';
 import { MatDialog } from '@angular/material';
 import { PrivacyPolicyComponent } from '../privacy-policy/privacy-policy.component';
 import { Router } from '@angular/router';
@@ -86,7 +86,7 @@ export class RegisterComponent extends UnsubscribableComponent implements OnInit
   public initForm(): void {
     this.registrationForm = this.formBuilder.group({
       email: ['', [Validators.required, emailValidator]],
-      phone: ['', [Validators.required]],
+      phone: ['', [Validators.required, phoneValidator]],
       isChosen: [false, [Validators.requiredTrue]]
     });
   }

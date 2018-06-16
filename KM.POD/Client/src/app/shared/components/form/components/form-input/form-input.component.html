@@ -1,10 +1,10 @@
 <ng-container>
-  <div [ngClass]="classes">
+  <div class="labelled-input-wrapper" [ngClass]="classes">
     <label [for]="id">{{label}}<span class="required-label" *ngIf="isRequired">*</span></label>
     <div class="input-wrapper">
-      <input [id]="id" [type]="type" [maxlength]="max" [formControl]='control' [placeholder]="placeholder">
-      <button class="button button_medium button_black-green">
-        <svg-icon src="assets/img/icons/pen.svg"></svg-icon>
+      <input class="form_input" [id]="id" [type]="type" [maxlength]="max" [formControl]='control' [placeholder]="placeholder">
+      <button *ngIf="editButton" class="button button_medium button_black-green button_edit" (click)="emitValue()">
+        <svg-icon src="assets/img/icons/edit.svg" class="button-svg-icon"></svg-icon>
       </button>
     </div>
     <span class="width-counter" *ngIf="max">{{currentLength}}/{{max}}</span>

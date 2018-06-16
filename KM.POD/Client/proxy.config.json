@@ -2,7 +2,6 @@
   "/api/*": {
     "target": "kordamentha3467.cloudapp.net:8081",
     "secure": false,
-    "logLevel": "debug",
     "changeOrigin": true
   }
 }

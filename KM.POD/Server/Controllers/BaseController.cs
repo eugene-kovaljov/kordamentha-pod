@@ -6,6 +6,7 @@ namespace KM.POD.WebSPA.Server.Controllers
     public abstract class BaseController : Controller
     {
         protected bool IsClient => User.IsInRole(nameof(ApplicationRole.Client));
-        protected bool IsEmployee => !User.IsInRole(nameof(ApplicationRole.Client));
+        protected bool IsEmployee => User.IsInRole(nameof(ApplicationRole.KMEmployee));
+        protected bool IsAdmin => User.IsInRole(nameof(ApplicationRole.SystemAdministrator));
     }
 }

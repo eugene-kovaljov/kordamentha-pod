@@ -20,11 +20,10 @@ namespace KM.POD.WebSPA.Server.Infrastructure.Filters
 
         public void OnException(ExceptionContext context)
         {
-            logger.LogError(new EventId(context.Exception.HResult),
-                context.Exception,
-                context.Exception.Message);
-            // TOOD: inherit all exceptions from PodDomainException
-            if (context.Exception.GetType() == typeof(Exceptions.PodDomainException))
+            logger.LogError(new EventId(context.Exception.HResult), context.Exception, context.Exception.Message);
+
+            if (context.Exception is Exceptions.PodDomainException ||
+                context.Exception is Data.Exceptions.PodDataException)
             {
                 var json = new JsonErrorResponse
                 {
@@ -32,7 +31,9 @@ namespace KM.POD.WebSPA.Server.Infrastructure.Filters
                 };
 
                 context.Result = new BadRequestObjectResult(json);
-                context.HttpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                context.HttpContext.Response.StatusCode = context.Exception is Data.Exceptions.EntityNotFoundException ?
+                    (int)HttpStatusCode.NotFound :
+                    (int)HttpStatusCode.BadRequest;
             }
             else
             {
