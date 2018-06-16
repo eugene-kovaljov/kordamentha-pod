@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { SetPageTitle } from '../../main/main-store/actions/index';
 
 @Component({
   selector: 'km-admin-dashboard',
@@ -6,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-dashboard.component.scss']
 })
 export class AdminDashboardComponent implements OnInit {
-  constructor() {}
+  constructor(private store: Store<any>) {}
 
-  ngOnInit() {}
+  public ngOnInit() {
+    this.store.dispatch(new SetPageTitle('Accounts'))
+  }
 }
