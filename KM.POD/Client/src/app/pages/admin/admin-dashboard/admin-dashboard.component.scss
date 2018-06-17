@@ -1,0 +1,124 @@
+@import "../../../../scss/helpers";
+
+:host /deep/ .admin-dashboard-wrapper {
+  padding: 56px 80px 40px 80px;
+  .dashboard-summary {
+    display: flex;
+    justify-content: space-between;
+    .summary-total {
+      @include font(18px, 500, 27px);
+      color: #333e48;
+    }
+
+    .summary-filters {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      color: #50748a;
+      @include font(16px, 500, 24px);
+      .svg-icon {
+        height: 14px;
+        width: 14px;
+        margin-right:8px;
+        .svg-slide {
+          height: 14px;
+          float: left;
+        }
+      }
+
+      &:hover {
+        color: #9ed1e9;
+      }
+    }
+  }
+
+  .dashboard-table {
+    margin-top: 28px;
+
+    mat-cell {
+      @include font(16px, 400, 24px);
+    }
+
+    mat-header-row {
+      background-color: #F6F5F4;
+      min-height: 45px;
+      mat-header-cell {
+        @include font(14px, 500, 21px);
+        color: rgba(51, 62, 72, 0.6);
+        padding: 12px 0 12px 12px;
+      }
+    }
+
+    mat-cell:first-child, mat-cell {
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+
+    .client-name, .client-job {
+      @include font(16px, 500, 24px);
+      color: #50748a;
+    }
+
+    .client-inactive {
+      @include font(14px, 400, 21px);
+      color: #777777;
+    }
+  }
+
+  .client-email {
+    @include font(14px, 500, 21px);
+    color: #50748a;
+  }
+
+  .client-phone {
+    @include font(14px, 500, 21px);
+  }
+
+  .workload-button {
+    height: 48px;
+    padding: 12px 22px;
+    margin: 12px 12px 12px 0;
+  }
+
+  .mat-expansion-indicator {
+    &:after {
+      transition: all 0.3s;
+      color: #ffffff;
+    }
+    margin-left: 8px;
+  }
+
+  mat-row.expanded {
+    .mat-expansion-indicator {
+      &:after {
+        transform: rotate(225deg);
+      }
+    }
+  }
+
+  .cdk-column-workloadData {
+    padding-right: 0;
+    margin-left: 12px;
+    margin-right: 12px;
+    background-color: #F6F5F4;
+    justify-content: center;
+
+    .mat-table {
+      width: 100%;
+      margin: 12px 96px;
+      mat-header-row, mat-row{
+        box-shadow: 0 0 2px 1px rgba(51, 62, 72, 0.2);
+      }
+
+      mat-row {
+        margin-top: 4px;
+      }
+    }
+  }
+
+  .no-data {
+    margin-top: 27px;
+    color: #333E48;
+    @include font(16px, 400, 24px);
+  }
+}

@@ -4,7 +4,7 @@ import { appRoutes } from './app.routes';
 import { CommonModule } from '@angular/common';
 
 @NgModule({
-  imports: [CommonModule, RouterModule.forRoot(appRoutes, { enableTracing: true })],
+  imports: [CommonModule, RouterModule.forRoot(appRoutes)],
   exports: [RouterModule]
 })
 export class RoutingModule {}

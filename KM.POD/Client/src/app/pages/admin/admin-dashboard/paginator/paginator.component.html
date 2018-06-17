@@ -1,0 +1,15 @@
+<div class="paginator-wrapper">
+  <div class="previous-page" (click)="onPageClicked({pageNumber: currentPage - 1})" [class.disabled]="currentPage === 1">
+    <span class="mat-expansion-indicator"></span>
+    <span class="paginator-text">Previous</span>
+  </div>
+  <div class="pages">
+    <div class="page-item" [class.selected]="currentPage === item.pageNumber" *ngFor="let item of pageItems" (click)="onPageClicked(item)">
+      <span>{{item.isDots ? '...' : item.pageNumber }}</span>
+    </div>
+  </div>
+  <div class="next-page" (click)="onPageClicked({pageNumber: currentPage + 1})" [class.disabled]="currentPage === totalItems">
+    <span class="paginator-text">Next</span>
+    <span class="mat-expansion-indicator"></span>
+  </div>
+</div>
