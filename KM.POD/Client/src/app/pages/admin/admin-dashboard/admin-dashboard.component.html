@@ -1,3 +1,91 @@
-<p>
-  admin-dashboard works!
-</p>
+<div class="admin-dashboard-wrapper">
+  <div class="dashboard-summary">
+    <div class="summary-total">276 account</div>
+    <div class="summary-filters" *ngIf="hasData">
+      <svg-icon class="svg-icon" src="assets/img/icons/slide.svg">
+      </svg-icon>
+      <div>Show filters</div>
+    </div>
+  </div>
+  <div class="dashboard-table" *ngIf="hasData">
+    <mat-table matSort (matSortChange)="userDataSortChanged($event)" #table [dataSource]="userDataSource">
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Name</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <div>
+            <a href="#" class="client-name">{{element.name}}</a>
+            <div class="client-inactive" *ngIf="element.inactive">inactive</div>
+          </div>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="contacts">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Contacts</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <div>
+            <a href="#" class="client-email">{{element.contacts.email}}</a>
+            <div class="client-phone">{{element.contacts.phone}}</div>
+          </div>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="office">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Office</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.office}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="workload">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Workload</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <button *ngIf="element.workload.length" class="button button_black-green workload-button" (click)="element.isExpanded = !element.isExpanded">
+            Jobs ({{element.workload.length}})
+            <span class="mat-expansion-indicator"></span>
+          </button>
+          <span *ngIf="element.workload.length === 0">No jobs</span>
+        </mat-cell>
+      </ng-container>
+
+      <!-- Expanded Content Column - The detail row is made up of this one column -->
+      <ng-container matColumnDef="workloadData">
+        <mat-cell *matCellDef="let row">
+          <mat-table matSort (matSortChange)="userWorklogSortChange($event)" #detailTable *ngIf="workloadData(row.element).length > 0" [dataSource]="row.detailDataSource">
+            <ng-container matColumnDef="job">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Jobs</mat-header-cell>
+              <mat-cell *matCellDef="let element">
+                <a href="#" class="client-job">{{element.job}}</a>
+              </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="permission">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Permissions</mat-header-cell>
+              <mat-cell *matCellDef="let element">
+                {{element.permission}}
+              </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="claims">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Claims</mat-header-cell>
+              <mat-cell *matCellDef="let element">
+                {{element.claims}}
+              </mat-cell>
+            </ng-container>
+            <mat-header-row *matHeaderRowDef="worklogDisplayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: worklogDisplayedColumns;"
+                     matRipple
+                     class="element-row"></mat-row>
+          </mat-table>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"
+               matRipple
+               class="element-row"
+               [class.expanded]="row.isExpanded"></mat-row>
+      <mat-row *matRowDef="let row; columns: ['workloadData']; when: isExpansionDetailRow"
+               [@detailExpand]="row.element.isExpanded ? 'expanded' : 'collapsed'"
+               style="overflow: hidden">
+      </mat-row>
+    </mat-table>
+    <km-paginator [totalItems]="18" [currentPage]="1"></km-paginator>
+  </div>
+  <div class="no-data" *ngIf="!hasData">Nobody was created</div>
+</div>

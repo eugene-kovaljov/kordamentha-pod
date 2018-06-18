@@ -5,12 +5,20 @@ import { DialogModule } from './components/dialogs/dialog.module';
 import { TextMaskModule } from 'angular2-text-mask';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { BreadcrumbsModule } from './components/breadcrumb/breadcrumbs.module';
-import { MatExpansionModule, MatMenuModule, MatSidenavModule } from '@angular/material';
+import {
+  MatExpansionModule, MatMenuModule, MatSidenavModule, MatSortModule, MatTableModule,
+  MatToolbarModule
+} from '@angular/material';
 
 @NgModule({
-  exports: [MatExpansionModule, MatMenuModule, MatSidenavModule]
+  exports: [MatExpansionModule, MatMenuModule, MatSidenavModule,
+    MatToolbarModule,
+    MatSortModule,
+    MatTableModule]
 })
-export class MaterialModule {}
+export class MaterialModule {
+}
+
 @NgModule({
   imports: [
     CommonModule,
@@ -23,4 +31,5 @@ export class MaterialModule {}
   ],
   exports: [AngularSvgIconModule, DialogModule, TextMaskModule, NgSelectModule, BreadcrumbsModule, MaterialModule]
 })
-export class SharedModule {}
+export class SharedModule {
+}

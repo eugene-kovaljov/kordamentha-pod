@@ -1,0 +1,79 @@
+@import "../../../../../scss/helpers";
+.paginator-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 25px;
+}
+
+.previous-page, .pages, .next-page {
+  &.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+  .paginator-text {
+    top: 2px;
+    position: relative;
+  }
+
+  @include font(14px, 400, 18px);
+  color: #50748A;
+  cursor: pointer;
+  display: flex;
+}
+
+.previous-page {
+  width: 20%;
+  justify-content: flex-start;
+  &:hover {
+    opacity: 0.7;
+  }
+  .mat-expansion-indicator {
+    margin-right: 8px;
+    margin-left: 0;
+    &:after {
+      transform: rotate(135deg);
+    }
+  }
+}
+
+.pages {
+  width: 60%;
+  justify-content: center;
+  .page-item {
+    height: 32px;
+    width: 32px;
+    transition: all 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &.selected {
+      color: #333E48;
+      font-weight: 500;
+    }
+    &:hover {
+      background-color: #EFEFEF;
+      opacity: 1;
+    }
+  }
+}
+
+.next-page {
+  width: 20%;
+  justify-content: flex-end;
+  &:hover {
+    opacity: 0.7;
+  }
+  .mat-expansion-indicator {
+    margin-left: 8px;
+    &:after {
+      transform: rotate(315deg);
+    }
+  }
+}
+
+.mat-expansion-indicator {
+  &:after {
+    color: #50748A !important;
+  }
+}
