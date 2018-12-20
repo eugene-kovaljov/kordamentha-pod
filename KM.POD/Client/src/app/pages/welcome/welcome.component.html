@@ -7,10 +7,13 @@
     <div class="authorization__content-wrapper">
       <div class="authorization__content">
         <h1 class="authorization__title h1">Lodge a Proof of Debt Form</h1>
-        <div class="authorization__text">
+        <div class="authorization__text" *ngIf="!textHided">
           <p>Content here, content here. Lorem Ipsum is simply dummy text of printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
           </p>
           <p>When an unknown printer took a galley specimen book.</p>
+        </div>
+        <div class="authorization__text" *ngIf="textHided">
+          <button class="button button_medium button_light-blue authorization-form__button center" (click)="changeTextState()">Show description</button>
         </div>
       </div>
     </div>

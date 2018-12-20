@@ -4,13 +4,17 @@
   position: relative;
 }
 
+.center {
+  margin-left: calc(50% - 82px);
+}
+
 .authorization {
   display: flex;
   flex-direction: column;
 
   color: white;
   background-image: url('../../../assets/img/bg-main.png');
-  background-size: cover;
+  background-size: auto 100vh;
 
   flex-wrap: wrap;
 

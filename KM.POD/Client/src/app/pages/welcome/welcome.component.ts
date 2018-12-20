@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener } from '@angular/core';
 import { citiesData } from '../../../mocks/cities/cities-data.mock';
 
 @Component({
@@ -9,4 +9,21 @@ import { citiesData } from '../../../mocks/cities/cities-data.mock';
 })
 export class WelcomeComponent {
   public cities: { id: string; name: string }[] = citiesData;
+  public textHided: boolean = false;
+  public initialHide: boolean = true;
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    if (event.target.innerWidth < 768) {
+      this.textHided = this.initialHide;
+    } else {
+      this.textHided = false;
+      this.initialHide = true;
+    }
+  }
+
+  public changeTextState(): void {
+    this.textHided = !this.textHided;
+    this.initialHide = false;
+  }
 }
